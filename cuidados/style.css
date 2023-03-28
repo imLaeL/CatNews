@@ -1,0 +1,118 @@
+/* Cuidados Gerais */
+
+body {
+  background-color: #ffffff;
+}
+
+/* Fundo da página */
+
+#fundo {
+  /* Dentro de url coloque o caminho para a imagem de fundo, img/<nome-da-imagem> */
+
+  background-image: url(img/image_background.png);
+  background-position: center;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Componentes do header */
+
+#logo {
+  display: inline-block;
+  padding-right: 20% !important;  
+}
+
+.outras-paginas {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 2.5%;
+  display: inline-block;
+  
+}
+
+#CatNews {
+  width: 100%;
+  left: 10%;
+  top: 3px;
+}
+
+.links {
+  font-size: 25px;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Animação de cada texto naquele header */
+
+.texto-header {
+  --b: 0.1em;
+  --c: #ffffff;
+
+  color: #0000;
+  padding-block: var(--b);
+  background: linear-gradient(var(--c) 50%, #000 0) 0%
+      calc(100% - var(--_p, 0%)) / 100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+.texto-header:hover {
+  --_p: 100%;
+  --_s: 0.3s;
+}
+
+/* Links para redes sociais*/
+
+.icons {
+  display: inline-block;
+}
+
+.fa-brands {
+  width: 40px;
+  font-size: 30px;
+  color: #000000;
+  transition: 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+  width: 35px;
+  font-size: 40px;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+/* Fim do header */
+
+/* Corpo da página*/
+
+#caixa-de-conteúdo {
+  background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
+  height: 2500px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#Cuidados-Gerais {
+  margin-top: 450px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#título-cuidados {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 55px;
+  margin-left: 20px;
+}
+
+#texto-cuidados {
+  padding: 100px;
+  text-align: justify;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
