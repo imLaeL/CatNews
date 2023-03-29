@@ -2,7 +2,7 @@
 
 Para fazer download do repositório usando a ferramenta git, basta cloná-lo da seguinte forma:
 
-    git clone httos://github.com/imLaeL/CatNews
+    git clone https://github.com/imLaeL/CatNews
     
     
 Ou baixar o arquiovo zipado clicando em "code" => "download zip".
