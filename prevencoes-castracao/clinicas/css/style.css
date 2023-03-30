@@ -10,7 +10,7 @@ body {
 
     /* Dentro de url coloque o caminho para a imagem de fundo, img/<nome-da-imagem> */
 
-    background-image: url();
+    background-image: url(../img/veterinario.jpg);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -87,3 +87,116 @@ body {
 /* Fim do header */
 
 /* Corpo da página*/
+
+#caixa-cinza {
+    background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
+    height: 700px;
+    margin-top: 350px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#título {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    padding: 40px;
+}
+
+.clinica-imagem {
+    background-image: url(../img/centro-vigilancia.jpeg);
+    background-repeat: no-repeat;
+    width: 40%;
+    height: 37%;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    padding: 20px;
+    margin-left: 5%;
+    transition: 0.2s ease-in-out;
+
+}
+
+.texto-na-imagem {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    opacity: 0%;
+
+    transition: 0.2s ease-in-out;
+}
+
+.clinica-imagem:hover {
+    opacity: 80%;
+    width: 42%;
+    height: 39%;
+    transition: 0.2s ease-in-out;
+    
+}
+
+#centro-vigilancia:hover #centro-texto {
+    opacity: 100%;
+    transition: 0.2s;
+}
+
+/*
+#centro-vigilancia:hover .descricao-centro-vigilancia {
+    animation: descricao-aparece 0.2s linear;
+}
+*/
+.descricao-centro-vigilancia {
+    font-size: 20px;  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: justify;
+    display: inline-block;
+    padding-left: 10px;
+    /* animation: descricao-desaparece 0.2s linear */
+
+}
+
+
+.clinicas {
+    border-radius: 20px;
+}
+
+/* Keyframes (ainda fazendo isso) 
+
+@keyframes descricao-desaparece {
+    0% {
+        opacity: 100%;
+        font-size: 20px;
+    }
+
+    50% {
+        opacity: 50%;
+        font-size: 15px;
+    }
+
+    100% {
+        opacity: 0%;
+        font-size: 10px;
+    }
+}
+
+@keyframes descricao-aparece {
+    0% {
+        opacity: 0%;
+        font-size: 10px;
+    }
+
+    50% {
+        opacity: 50%;
+        font-size: 15px;
+    }
+
+    100% {
+        opacity: 100%;
+        font-size: 20px;
+    }
+
+}*/

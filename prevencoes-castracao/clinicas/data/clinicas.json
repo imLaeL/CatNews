@@ -1,0 +1,15 @@
+{
+    "clinicas": [
+        {
+            "name": "centro-vigilancia",
+            "centro-texto": "Centro de Vigilância Ambiental",
+            "endereço": "Rua Walfredo Macedo Brandão, 100 - Jardim Cidade Universitária",
+            "horario": "8h às 17h",
+            "telefone": "(83) 3413-3459"
+        },
+
+        {
+            
+        }
+    ]
+}

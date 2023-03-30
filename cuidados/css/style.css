@@ -9,7 +9,7 @@ body {
 #fundo {
   /* Dentro de url coloque o caminho para a imagem de fundo, img/<nome-da-imagem> */
 
-  background-image: url(img/image_background.png);
+  background-image: url(../img/image_background.png);
   background-position: center;
   background-size: 120%;
   background-repeat: no-repeat;

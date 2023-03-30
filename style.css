@@ -19,20 +19,20 @@ body {
 
 #logo {
   display: inline-block;
-  padding-right: 20% !important;  
+  padding-right: 20% !important; 
+  padding-left: 0.5%;
 }
 
 .outras-paginas {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-right: 2.5%;
+  padding-right: 2.25%;
   display: inline-block;
   
 }
 
 #CatNews {
   width: 100%;
-  left: 10%;
-  top: 3px;
+  min-width: 100%;
 }
 
 .links {
@@ -89,7 +89,7 @@ body {
 
 #texto-boas-vindas {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   color: #000;
   padding: 20px;
   text-align: justify;
@@ -237,7 +237,10 @@ body {
 /* Media Queries (variação do css para dispositivos diferentes) */
 
 @media screen and (min-width: 1600px) {
-  #Cat-News {
-    width: 700px;
-  }
+ #texto-boas-vindas {
+  font-size: 30px;
+ } 
+
+
+
 }
