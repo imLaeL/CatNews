@@ -88,7 +88,7 @@ body {
 
 /* Corpo da página*/
 
-#caixa-cinza {
+#caixa-de-conteudo {
     background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
     height: 90%;
     margin-top: 350px;
