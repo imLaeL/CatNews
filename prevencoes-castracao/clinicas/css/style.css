@@ -90,7 +90,7 @@ body {
 
 #caixa-cinza {
     background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
-    height: 700px;
+    height: 90%;
     margin-top: 350px;
     margin-left: 40px;
     margin-right: 40px;
@@ -109,7 +109,6 @@ body {
 .clinicas-joao-pessoa {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 #centro-vigilancia {
@@ -121,7 +120,7 @@ body {
     width: 40%;
     height: 37%;
     border-radius: 20px;
-    display: flex;
+    margin-left: 27.5%;
     background-size: 100%;
     background-position: center;
     padding: 20px;
@@ -167,7 +166,75 @@ body {
 
 }
 
+/* Clínica 4 patas */
 
+#clinica-4patas {
+    background-image: url(../img/clinica-4-patas.jpg);
+    background-repeat: no-repeat;
+}
+
+/* Clínica e Farmácia Popular MED VET*/
+
+#clinica-MED-VET {
+    background-image: url(../img/clinica-farmacia-MED-VET.jpeg);
+    background-repeat: no-repeat;
+}
+
+/* Clínica Veterinária PET AMIGO */
+
+#clinica-PET-AMIGO {
+    background-image: url(../img/pet-amigo.jpg);
+    background-repeat: no-repeat;
+}
+
+/* PET SAÚDE Clínica Veterinária e Petshop */
+
+#clinica-PET-SAUDE {
+    background-image: url(../img/PET-SAÚDE.JPG);
+    background-repeat: no-repeat;
+}
+
+/* ASSVET Centro Veterinário e Casa dos Cuidadores */
+
+#ASSVET {
+    background-image: url(../img/ASSVET.png);
+    background-repeat: no-repeat;
+}
+
+/* Clínica Veterinária MAKTUB - CVM */
+
+#MAKTUB {
+    background-image: url(../img/maktub.jpeg);
+    background-repeat: no-repeat;
+}
+
+/* NAV - Núcleo de Atendimento Veterinário */
+
+#NAV {
+    background-image: url(../img/NAV.jpg);
+    background-repeat: no-repeat;
+}
+
+/* VIT VET Clínica Veterinária */
+
+#VIT-VET {
+    background-image: url(../img/VIT-VET.jpg);
+    background-repeat: no-repeat;
+}
+
+/* CMV - Centro Médico Veterinário */
+
+#CMV {
+    background-image: url(../img/CMV.png);
+    background-repeat: no-repeat;
+}
+
+/* Clínica Veterinária BOM PASTOR */
+
+#BOM-PASTOR {
+    background-image: url(../img/bom-pastor.png);
+    background-repeat: no-repeat;
+}
 
 /* Keyframes (ainda fazendo isso) 
 

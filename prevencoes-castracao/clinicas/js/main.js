@@ -1,10 +1,14 @@
 function getClinics(clinic) {
 
-    return `<div id="${clinic.name}" class="clinicas">
-                <p class="texto-na-imagem">${clinic.texto-na-imagem}</p>
+    return `<div class=clinicas-joao-pessoa">
+                <div id="${clinic.name}" class="clinicas">
+                    <p class="texto-na-imagem">${clinic.titulo}</p>
+                </div>
             </div>
             
-            ${getClinicsDescription(clinic.description)}`;          
+            ${getClinicsDescription(clinic.description)}
+
+            `;          
 }
 
 function getClinicsDescription(clinic_description) {
@@ -19,10 +23,13 @@ function getClinicsDescription(clinic_description) {
 const response = await fetch('./data/clinicas.json');
 const data = await response.json();
 
+let clinics_list = '';
+
 for (const clinic of data.clinics) {
     clinics_list += getClinics(clinic);
 }
 
+
 clinics_list;
 
-document.querySelector('div.clinicas-joao-pessoa').innerHTML = clinics_list;
+document.querySelector('section#clinicas').innerHTML = clinics_list;
