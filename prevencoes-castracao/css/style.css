@@ -1,0 +1,210 @@
+/* Prevenções e castração */
+
+body {
+    background-color: #FFFFFF;
+}
+
+/* Fundo da página */
+
+#fundo {
+
+    /* Dentro de url coloque o caminho para a imagem de fundo, ../img/<nome-da-imagem> */
+
+    background-image: url(../img/fundo.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Componentes do header */
+
+/* logo e Cat News são para a div logo e para a figura em si */
+/* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
+
+#logo {
+    display: inline-block;
+    padding-right: 15% !important;
+    padding-left: 5%;
+}
+
+#CatNews {
+    width: 100%;
+    min-width: 100%;
+}
+
+/* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
+
+.outras-paginas {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 2.25%;
+    display: inline-block;
+}
+
+/* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
+
+.links {
+    font-size: 25px;
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Animação de cada texto naquele header */
+
+.texto-header {
+    --b: 0.1em;
+    --c: #ffffff;
+
+    color: #0000;
+    padding-block: var(--b);
+    background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
+        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.3s var(--_s, 0s) linear,
+        background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+
+.texto-header:hover {
+    --_p: 100%;
+    --_s: 0.3s;
+}
+
+/* Links para redes sociais*/
+/* Deixa cada ícone um do lado do outro */
+.icons {
+    display: inline-block;
+}
+
+/* Tamanho, cor e animação dos ícones */
+
+.fa-brands {
+    width: 40px;
+    font-size: 30px;
+    color: #000000;
+    transition: 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+    width: 35px;
+    font-size: 40px;
+    color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+
+/* Fim do header */
+
+/* Corpo da página*/
+
+/* Figuras e texto delas */
+/* Deixa as 3 figuras no centro */
+.figuras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Deixa os nomes um do lado do outro, alinhados ao centro e tira a cor azul que fica por ser um link */
+
+.figuras-link {
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding: 2.5%;
+}
+
+/* animação com os traços que passam por cima do texto */
+
+.figuras-texto {
+
+    padding: 20px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    --b: 0.1em;
+    --c: #ffffff;
+
+    color: #0000;
+    padding-block: var(--b);
+    background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
+        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.3s var(--_s, 0s) linear,
+        background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+
+.figuras-texto:hover {
+    --_p: 100%;
+    --_s: 0.3s;
+}
+
+/* Figura clínicas veterinárias */
+
+.clinicas-veterinarias {
+    background-image: url(../img/clinica-felinos.jpg);
+    background-repeat: no-repeat;
+    background-size: 180%;
+    background-position: center;
+    width: 230px;
+    height: 230px;
+    border-radius: 158px;
+    display: inline-block;
+
+    transition: 0.2s ease-in-out;
+}
+
+.clinicas-veterinarias:hover {
+    width: 260px;
+    height: 260px;
+    transition: 0.2s ease-in-out;
+    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+}
+
+
+/* Figura locais de castração */
+
+.locais-castracao {
+    background-image: url(../img/locais-de-castração.jpg);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center;
+    width: 230px;
+    height: 230px;
+    border-radius: 158px;
+    display: inline-block;
+
+    transition: 0.2s ease-in-out;
+}
+
+.locais-castracao:hover {
+
+    width: 260px;
+    height: 260px;
+    transition: 0.2s ease-in-out;
+    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+}
+
+/* Figura Pet Shops */
+
+.petshops {
+    background-image: url(../img/gato-comendo-racao.jpg);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    background-position: center;
+    width: 230px;
+    height: 230px;
+    border-radius: 158px;
+
+    display: inline-block;
+
+    transition: 0.2s ease-in-out;
+}
+
+.petshops:hover {
+    width: 260px;
+    height: 260px;
+
+    transition: 0.2s ease-in-out;
+    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+}

@@ -6,9 +6,13 @@ body {
 
 /* Fundo da página */
 
+/* background-image => imagem de fundo.
+  background-size, position, repeat e attachment são para
+  a imagem ser exibida na tela toda, no centro, sem repetição
+  e sem rolar junto com a página */
+
 #fundo {
   /* Dentro de url coloque o caminho para a imagem de fundo, img/<nome-da-imagem> */
-
   background-image: url(../img/image_background.png);
   background-position: center;
   background-size: 120%;
@@ -18,23 +22,29 @@ body {
 
 /* Componentes do header */
 
+/* logo e Cat News são para a div logo e para a figura em si */
+/* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
+
 #logo {
   display: inline-block;
-  padding-right: 20% !important;  
-}
-
-.outras-paginas {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-right: 2.5%;
-  display: inline-block;
-  
+  padding-right: 15% !important; 
+  padding-left: 5%;
 }
 
 #CatNews {
   width: 100%;
-  left: 10%;
-  top: 3px;
+  min-width: 100%;
 }
+
+/* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
+
+.outras-paginas {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 2.25%;
+  display: inline-block;
+}
+
+/* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 
 .links {
   font-size: 25px;
@@ -65,10 +75,13 @@ body {
 }
 
 /* Links para redes sociais*/
+  /* Deixa cada ícone um do lado do outro */
 
-.icons {
+  .icons {
   display: inline-block;
 }
+
+  /* Tamanho, cor e animação dos ícones */
 
 .fa-brands {
   width: 40px;

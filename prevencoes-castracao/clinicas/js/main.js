@@ -13,10 +13,12 @@ function getClinics(clinic) {
 
 function getClinicsDescription(clinic_description) {
 
-    return `<div class="descricao-clinica">
-                <p class="endereço">${clinic_description.endereço}<br></p>
-                <p class="horario"> Horário: ${clinic_description.horario}<br> </p>
-                <p class="telefone"> Telefone: ${clinic_description.telefone}</p>
+    return `<div class="descricao-clinicas">
+                <div class="descricao-clinica">
+                    <p class="endereço">${clinic_description.endereço}<br></p>
+                    <p class="horario"> Horário: ${clinic_description.horario}<br> </p>
+                    <p class="telefone"> Telefone: ${clinic_description.telefone}</p>
+                </div>
             </div>`;
 }
 

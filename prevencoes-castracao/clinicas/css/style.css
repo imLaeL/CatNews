@@ -89,7 +89,7 @@ body {
 /* Corpo da página*/
 
 #caixa-de-conteudo {
-    background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
+    background-image: linear-gradient(to bottom, rgb(246, 246, 246), white);
     height: 90%;
     margin-top: 350px;
     margin-left: 40px;
@@ -111,10 +111,7 @@ body {
     flex-wrap: wrap;
 }
 
-#centro-vigilancia {
-    background-image: url(../img/centro-vigilancia.jpeg);
-    background-repeat: no-repeat;
-}
+
 
 .clinicas {
     width: 40%;
@@ -142,6 +139,7 @@ body {
     opacity: 80%;
     width: 42%;
     height: 39%;
+    box-shadow: rgba(0, 0, 0, 0.35) -5px 2px 20px;
     transition: 0.2s ease-in-out;
     
 }
@@ -151,21 +149,25 @@ body {
     transition: 0.2s;
 }
 
-/*
-#centro-vigilancia:hover .descricao-centro-vigilancia {
-    animation: descricao-aparece 0.2s linear;
+.descricao-clinicas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-*/
 .descricao-clinica {
     font-size: 20px;  
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     padding-bottom: 50px;
-    
-    /* animation: descricao-desaparece 0.2s linear */
 
 }
 
+/* Centro de Vigilância */
+
+#centro-vigilancia {
+    background-image: url(../img/centro-vigilancia.jpeg);
+    background-repeat: no-repeat;
+}
 /* Clínica 4 patas */
 
 #clinica-4patas {
@@ -236,39 +238,35 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Keyframes (ainda fazendo isso) 
-
-@keyframes descricao-desaparece {
-    0% {
-        opacity: 100%;
+ 
+/*
+@media screen and (min-width: 1400px) {
+    .clinicas-joao-pessoa {
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    .clinicas {
+        justify-content: left;
+        width: 30%;
+        height: 27%;
+        margin-left: 5%;
+        background-size: 100%;
+    }
+    .clinicas:hover {
+        width: 32%;
+        height: 29%;
+    }
+    .decricao-clinicas {
+        display: inline-block;
+    }
+    .descricao-clinica {
+        justify-content: right;
+        
+        text-align: justify;
+        padding: 30px;
         font-size: 20px;
-    }
-
-    50% {
-        opacity: 50%;
-        font-size: 15px;
-    }
-
-    100% {
-        opacity: 0%;
-        font-size: 10px;
     }
 }
 
-@keyframes descricao-aparece {
-    0% {
-        opacity: 0%;
-        font-size: 10px;
-    }
-
-    50% {
-        opacity: 50%;
-        font-size: 15px;
-    }
-
-    100% {
-        opacity: 100%;
-        font-size: 20px;
-    }
-
-}*/
+ Fazendo isso ainda */

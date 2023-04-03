@@ -2,9 +2,15 @@
 
 body {
   background-color: #ffffff;
+  height: 100%;
 }
 
 /* Fundo da página */
+
+/* background-image => imagem de fundo.
+  background-size, position, repeat e attachment são para
+  a imagem ser exibida na tela toda, no centro, sem repetição
+  e sem rolar junto com a página */
 
 #fundo {
   background-image: url(img/pagina-inicial-fundo.jpg);
@@ -12,28 +18,34 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
 }
 
 /* Componentes do header */
 
+/* logo e Cat News são para a div logo e para a figura em si */
+/* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
 
 #logo {
   display: inline-block;
-  padding-right: 20% !important; 
-  padding-left: 0.5%;
-}
-
-.outras-paginas {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-right: 2.25%;
-  display: inline-block;
-  
+  padding-right: 15% !important; 
+  padding-left: 5%;
 }
 
 #CatNews {
   width: 100%;
   min-width: 100%;
 }
+
+/* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
+
+.outras-paginas {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 2.25%;
+  display: inline-block;
+}
+
+/* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 
 .links {
   font-size: 25px;
@@ -64,10 +76,12 @@ body {
 }
 
 /* Links para redes sociais*/
-
+  /* Deixa cada ícone um do lado do outro */
 .icons {
   display: inline-block;
 }
+
+  /* Tamanho, cor e animação dos ícones */
 
 .fa-brands {
   width: 40px;
@@ -86,23 +100,17 @@ body {
 /* Fim do header */
 
 /* Corpo da página */
-
+  /* Texto de boas vindas, fonte, tamanho dela, cor, alinhamento, padding e margem estão definidos aqui */
 #texto-boas-vindas {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   color: #000;
   padding: 20px;
   text-align: justify;
-  margin-top: 100px;
-  margin-right: 55%;
+  margin-top: 8%;
+  margin-right: 60%;
 }
 
-#texto-introdução {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 100px;
-  font-size: 30px;
-  text-align: justify;
-}
 
 /* A caixa meio cinza e meio branca */
 
@@ -118,12 +126,14 @@ body {
 }
 
 /* Figuras e texto delas */
-
+  /* Deixa as 3 figuras no centro */
 .figuras {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+  /* Deixa os nomes um do lado do outro, alinhados ao centro e tira a cor azul que fica por ser um link */
 
 .figuras-link {
   text-decoration: none;
@@ -132,6 +142,8 @@ body {
   padding: 2.5%;
 }
 
+  /* animação com os traços que passam por cima do texto */
+
 .figuras-texto {
   
   padding: 20px;
@@ -139,7 +151,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   --b: 0.1em;
-  --c: #939393;
+  --c: #ffffff;
 
   color: #0000;
   padding-block: var(--b);
@@ -168,20 +180,18 @@ body {
   width: 230px;
   height: 230px;
   border-radius: 158px;
-
-  padding: 20px;
   display: inline-block;
 
   transition: 0.2s ease-in-out;
 }
 
 .adote-gatinho:hover {
-  opacity: 80%;
   width: 260px;
   height: 260px;
   transition: 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
+
 
 /* Figura ajude anjos de rua */
 
@@ -193,19 +203,17 @@ body {
   width: 230px;
   height: 230px;
   border-radius: 158px;
-
-  padding: 20px;
   display: inline-block;
 
   transition: 0.2s ease-in-out;
 }
 
 .ajude-anjo-de-rua:hover {
-  opacity: 80%;
+  
   width: 260px;
   height: 260px;
   transition: 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgb(255, 255, 255) 0px 5px 15px;
 }
 
 /* Figura cuide e alimente */
@@ -218,29 +226,16 @@ body {
   width: 230px;
   height: 230px;
   border-radius: 158px;
-  padding: 20px;
+  
   display: inline-block;
 
   transition: 0.2s ease-in-out;
 }
 
-.cuide-alimente:hover {
-  opacity: 80%;
+.cuide-alimente:hover {  
   width: 260px;
   height: 260px;
 
   transition: 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-
-/* Media Queries (variação do css para dispositivos diferentes) */
-
-@media screen and (min-width: 1600px) {
- #texto-boas-vindas {
-  font-size: 30px;
- } 
-
-
-
+  box-shadow: rgb(255, 255, 255) 0px 5px 15px;
 }
