@@ -19,9 +19,15 @@ body {
 
 /* Componentes do header */
 
+#componentes-do-header {
+    margin-top: 0.5%;
+    animation: header-aparece 1s;
+}
+
 #logo {
     display: inline-block;
-    padding-right: 20% !important;
+    padding-right: 15% !important;
+    margin-left: 5%;
 }
 
 .outras-paginas {
@@ -97,6 +103,7 @@ body {
     margin-bottom: 50px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation: caixa-de-conteudo-aparece 1s;
 }
 
 #título {
@@ -270,3 +277,29 @@ body {
 }
 
  Fazendo isso ainda */
+
+/* Animações */
+
+@keyframes header-aparece {
+    0% {
+        margin-top: -20%;
+    }
+
+    100% {
+        margin-top: 0.5%;
+    }
+}
+
+@keyframes caixa-de-conteudo-aparece {
+    0% {
+        opacity: 0%;
+    }
+
+    75% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}

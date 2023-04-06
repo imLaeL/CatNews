@@ -1,104 +1,121 @@
 /* Página inicial */
 
 body {
-    background-color: #ffffff;
-    height: 100%;
-  }
-  
-  /* Fundo da página */
-  
-  /* background-image => imagem de fundo.
+  background-color: #ffffff;
+  height: 100%;
+}
+
+/* Fundo da página */
+
+/* background-image => imagem de fundo.
     background-size, position, repeat e attachment são para
     a imagem ser exibida na tela toda, no centro, sem repetição
     e sem rolar junto com a página */
 
-  /* Colocar caminho da imagem dentro de "url()" */
-  
-  #fundo {
-    background-image: url();
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
+/* Colocar caminho da imagem dentro de "url()" */
+
+#fundo {
+  background-image: url();
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+/* Componentes do header */
+
+/* logo e Cat News são para a div logo e para a figura em si */
+/* Posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
+
+#componenetes-do-header {
+  margin-top: 0.5%;
+  animation: header-aparece 1s;
+}
+
+#logo {
+  display: inline-block;
+  padding-right: 15% !important;
+  padding-left: 5%;
+}
+
+#CatNews {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
+
+.outras-paginas {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 2.25%;
+  display: inline-block;
+}
+
+/* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
+
+.links {
+  font-size: 25px;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Animação de cada texto naquele header */
+
+.texto-header {
+  --b: 0.1em;
+  --c: #ffffff;
+
+  color: #0000;
+  padding-block: var(--b);
+  background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+
+.texto-header:hover {
+  --_p: 100%;
+  --_s: 0.3s;
+}
+
+/* Links para redes sociais*/
+/* Deixa cada ícone um do lado do outro */
+.icons {
+  display: inline-block;
+}
+
+/* Tamanho, cor e animação dos ícones */
+
+.fa-brands {
+  width: 40px;
+  font-size: 30px;
+  color: #000000;
+  transition: 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+  width: 35px;
+  font-size: 40px;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+/* Fim do header */
+
+/* Corpo da página */
+
+
+/* Animações */
+
+@keyframes header-aparece {
+  0% {
+    margin-top: -20%;
   }
-  
-  /* Componentes do header */
-  
-  /* logo e Cat News são para a div logo e para a figura em si */
-  /* Posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
-  
-  #logo {
-    display: inline-block;
-    padding-right: 15% !important; 
-    padding-left: 5%;
+
+  100% {
+    margin-top: 0.5%;
   }
-  
-  #CatNews {
-    width: 100%;
-    min-width: 100%;
-  }
-  
-  /* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
-  
-  .outras-paginas {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-right: 2.25%;
-    display: inline-block;
-  }
-  
-  /* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
-  
-  .links {
-    font-size: 25px;
-    color: #000000;
-    text-decoration: none;
-  }
-  
-  /* Animação de cada texto naquele header */
-  
-  .texto-header {
-    --b: 0.1em;
-    --c: #ffffff;
-  
-    color: #0000;
-    padding-block: var(--b);
-    background: linear-gradient(var(--c) 50%, #000 0) 0%
-        calc(100% - var(--_p, 0%)) / 100% 200%,
-      linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
-        no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
-    transition: 0.3s var(--_s, 0s) linear,
-      background-size 0.3s calc(0.3s - var(--_s, 0s));
-  }
-  .texto-header:hover {
-    --_p: 100%;
-    --_s: 0.3s;
-  }
-  
-  /* Links para redes sociais*/
-    /* Deixa cada ícone um do lado do outro */
-  .icons {
-    display: inline-block;
-  }
-  
-    /* Tamanho, cor e animação dos ícones */
-  
-  .fa-brands {
-    width: 40px;
-    font-size: 30px;
-    color: #000000;
-    transition: 0.2s ease-in-out;
-  }
-  
-  .fa-brands:hover {
-    width: 35px;
-    font-size: 40px;
-    color: #ffffff;
-    transition: 0.2s ease-in-out;
-  }
-  
-  /* Fim do header */
-  
-  /* Corpo da página */
+}

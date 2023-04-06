@@ -2,6 +2,7 @@
 
 body {
     background-color: #FFFFFF;
+    height: 100%;
 }
 
 /* Fundo da página */
@@ -22,10 +23,15 @@ body {
 /* logo e Cat News são para a div logo e para a figura em si */
 /* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
 
+#componentes-do-header {
+    margin-top: 0.5%;
+    animation: header-aparece 1s;
+}
+
 #logo {
     display: inline-block;
     padding-right: 15% !important;
-    padding-left: 5%;
+    margin-left: 5%;
 }
 
 #CatNews {
@@ -98,10 +104,14 @@ body {
 
 /* Figuras e texto delas */
 /* Deixa as 3 figuras no centro */
+/* animação de aparecer */
+
 .figuras {
+    margin-top: 15%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    animation: figuras-aparecem 1.5s;
 }
 
 /* Deixa os nomes um do lado do outro, alinhados ao centro e tira a cor azul que fica por ser um link */
@@ -122,7 +132,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     --b: 0.1em;
-    --c: #ffffff;
+    --c: #939393;
 
     color: #0000;
     padding-block: var(--b);
@@ -207,4 +217,30 @@ body {
 
     transition: 0.2s ease-in-out;
     box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+}
+
+/* Animações */
+
+@keyframes header-aparece {
+    0% {
+        margin-top: -20%;
+    }
+
+    100% {
+        margin-top: 0.5%;
+    }
+}
+
+@keyframes figuras-aparecem {
+    0% {
+        opacity: 0%;
+    }
+
+    75% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }

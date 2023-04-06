@@ -22,8 +22,14 @@ body {
 
 /* Componentes do header */
 
+/* Componentes do header só tem um espaçamento de cima e a animação para ele chegar lá */
 /* logo e Cat News são para a div logo e para a figura em si */
 /* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
+
+#componentes-do-header {
+  margin-top: 0.5%;
+  animation: header-aparece 1s;
+}
 
 #logo {
   display: inline-block;
@@ -102,7 +108,7 @@ body {
 /* Corpo da página*/
 
 #caixa-de-conteúdo {
-  background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(234, 234, 234));
   height: 90%;
   margin-left: 40px;
   margin-right: 40px;
@@ -112,20 +118,63 @@ body {
 }
 
 #Cuidados-Gerais {
-  margin-top: 450px;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding: 20px;
+  
 }
 
 #título-cuidados {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 55px;
-  margin-left: 20px;
+  margin-top: 10%;
+  margin-left: 5%;
+  animation: título-aparece 1s;
 }
 
 #texto-cuidados {
   padding: 100px;
   text-align: justify;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
+  animation: texto-aparece 2s;
+}
+
+/* Animcações */
+
+@keyframes título-aparece {
+  0% {
+    margin-left: -20%;
+  }
+
+
+  100% {
+    margin-left: 5%;
+  }
+}
+
+@keyframes texto-aparece {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes header-aparece {
+  0% {
+    margin-top: -20%;
+  }
+
+  100% {
+    margin-top: 0.5%;
+  }
+}
+
+/* Configurações de tamanhos de tela */
+
+@media screen and (min-width: 1600px) {
+  #texto-cuidados {
+    font-size: 25px;
+  }
 }
