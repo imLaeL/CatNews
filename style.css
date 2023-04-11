@@ -13,12 +13,14 @@ body {
   e sem rolar junto com a página */
 
 #fundo {
+  padding-top: 80px;
   background-image: url(img/pagina-inicial-fundo.jpg);
-  background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  
+  background-position: 0px 0px;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  height: 300px;
 }
 
 /* Componentes do header */
@@ -27,13 +29,18 @@ body {
 /* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
 
 #componentes-do-header {
-  margin-top: 0.5%;
+  background-color: white;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
   animation: header-aparece 1s;
 }
 
 #logo {
   display: inline-block;
-  padding-right: 15% !important; 
+  padding-right: 25% !important;
   padding-left: 5%;
 }
 
@@ -45,7 +52,8 @@ body {
 /* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
 
 .outras-paginas {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Montserrat';
+  font-weight: bold;
   padding-right: 2.25%;
   display: inline-block;
 }
@@ -53,7 +61,7 @@ body {
 /* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 
 .links {
-  font-size: 25px;
+  font-size: 15px;
   color: #000000;
   text-decoration: none;
 }
@@ -62,7 +70,7 @@ body {
 
 .texto-header {
   --b: 0.1em;
-  --c: #ffffff;
+  --c: #0d94b6;
 
   color: #0000;
   padding-block: var(--b);
@@ -82,54 +90,36 @@ body {
 
 /* Links para redes sociais*/
   /* Deixa cada ícone um do lado do outro */
-.icons {
-  display: inline-block;
-}
 
-  /* Tamanho, cor e animação dos ícones */
-
-.fa-brands {
-  width: 40px;
-  font-size: 30px;
-  color: #000000;
-  transition: 0.2s ease-in-out;
-}
-
-.fa-brands:hover {
-  width: 35px;
-  font-size: 40px;
-  color: #ffffff;
-  transition: 0.2s ease-in-out;
-}
 
 /* Fim do header */
 
 /* Corpo da página */
   /* Texto de boas vindas, fonte, tamanho dela, cor, alinhamento, padding e margem estão definidos aqui */
 #texto-boas-vindas {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  color: #000;
-  text-align: justify;
-  margin-top: 3%;
-  margin-right: 65%;
-  margin-left: 3.5%;
-  padding-bottom: 20px;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  color: #333;
+  text-align: center;
+  
+  padding-bottom: 10px;
   animation: welcome-aparece 1s;
 }
 
+#texto-boas-vindas h3 {
+  font-size: 40px;
+  text-align: center;
+}
 
 /* A caixa meio cinza e meio branca */
 
-#caixa-cinza {
-  background-image: linear-gradient(to bottom, rgb(210, 210, 210), white);
+#second-section {
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(217, 217, 217));
   height: 95%;
   margin-top: 350px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 50px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 /* Figuras e texto delas */
@@ -138,7 +128,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2%;
+  
   animation: figuras-aparecem 2s;
 }
 
@@ -148,16 +138,20 @@ body {
   text-decoration: none;
   text-align: center;
   display: inline-block;  
-  padding: 2.5%;
+  padding: 2.30%;
 }
 
   /* texto das figuras */
 
 .figuras-texto {
   color: white;  
-  padding: 20px;
-  font-size: 15px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  font-weight: bold;
 
 }
   /* background do texto (vermelho) */
@@ -174,8 +168,8 @@ body {
   background-repeat: no-repeat;
   background-size: 180%;
   background-position: center;
-  width: 230px;
-  height: 230px;
+  width: 170px;
+  height: 170px;
   border-radius: 158px;
   display: inline-block;
 
@@ -183,8 +177,8 @@ body {
 }
 
 .adote-gatinho:hover {
-  width: 260px;
-  height: 260px;
+  width: 190px;
+  height: 190px;
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
@@ -196,8 +190,8 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  width: 230px;
-  height: 230px;
+  width: 170px;
+  height: 170px;
   border-radius: 158px;
   display: inline-block;
 
@@ -206,10 +200,10 @@ body {
 
 .ajude-anjo-de-rua:hover {
   
-  width: 260px;
-  height: 260px;
+  width: 190px;
+  height: 190px;
   transition: 0.2s ease-in-out;
-  box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+  box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
 
 /* Figura cuide e alimente */
@@ -219,8 +213,8 @@ body {
   background-repeat: no-repeat;
   background-size: 160%;
   background-position: center;
-  width: 230px;
-  height: 230px;
+  width: 170px;
+  height: 170px;
   border-radius: 158px;
   
   display: inline-block;
@@ -229,13 +223,69 @@ body {
 }
 
 .cuide-alimente:hover {  
-  width: 260px;
-  height: 260px;
+  width: 190px;
+  height: 190px;
 
   transition: 0.2s ease-in-out;
-  box-shadow: rgb(255, 255, 255) 0px 5px 15px;
+  box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
 
+
+/* Fim do corpo da página*/
+
+/* Footer (faz parte do corpo da página, mas só para deixar separado semanticamente) */
+
+
+
+.footer-component {
+  padding: 40px;
+  display: inline-block;
+}
+
+.creditos {
+  
+}
+
+.denuncie {
+  
+}
+
+.icons {
+    
+}
+
+  /* Tamanho, cor e animação dos ícones */
+
+.fa-brands {
+  width: 40px;
+  font-size: 30px;
+  color: #000000;
+  transition: 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+  width: 35px;
+  font-size: 35px;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.bloco-de-texto {
+  font-family: 'Montserrat';
+  line-height: 20px;
+  color: #333;
+  text-align: left;
+}
+
+.título {
+  display: flex;
+  text-transform: uppercase; 
+  margin-top: 50px;
+}
+
+.bloco-de-texto .telefones {
+  text-decoration: none;
+}
 
 /* Animações */
 
@@ -269,6 +319,6 @@ body {
   }
 
   100% {
-    margin-top: 0.5%;
+    margin-top: -0.5rem;
   }
 }
