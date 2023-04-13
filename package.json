@@ -1,0 +1,24 @@
+{
+  "name": "catnews",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Para fazer download do repositório usando o git, basta cloná-lo da seguinte forma: git clone https://github.com/imLaeL/CatNews",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imLaeL/CatNews.git"
+  },
+  "author": "Shannon Brunna, Kayck Jesse, Janaína Vitória e Isaque Lael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imLaeL/CatNews/issues"
+  },
+  "homepage": "https://github.com/imLaeL/CatNews#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
+}
