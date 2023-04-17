@@ -23,14 +23,13 @@ server.get('/clinicas-joao-pessoa', (req, res) => {
     res.json(clinicas);
 });
 
-// 404 handler
+// Erro 404
 
 server.use((req, res, next) => {
-    res.status(404).json({ message: 'Content not found!' });
+    res.status(404).json({ message: 'Conteúdo não foi achado ;(  ' });
 });
 
-// Error handler
-
+// Manipulador de erros
 
 server.use((err, req, res, next) => {
     console.error(err.stack);
