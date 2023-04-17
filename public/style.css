@@ -54,9 +54,20 @@ body {
 .outras-paginas {
   font-family: 'Montserrat';
   font-weight: bold;
-  padding-right: 2.25%;
+  margin-right: 4%;
   display: inline-block;
 }
+
+.outras-paginas:hover .texto-header {
+  color: #2098D1;
+  transition: 0.2s ease-in-out;
+}
+
+.texto-header {
+  color: #000000;
+  transition: 0.2s ease-in-out;
+}
+
 
 /* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 
@@ -67,26 +78,40 @@ body {
 }
 
 /* Animação de cada texto naquele header */
+  /* linhazinha para o centro azul */
 
-.texto-header {
-  --b: 0.1em;
-  --c: #0d94b6;
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
 
-  color: #0000;
-  padding-block: var(--b);
-  background: linear-gradient(var(--c) 50%, #000 0) 0%
-      calc(100% - var(--_p, 0%)) / 100% 200%,
-    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
-      no-repeat;
-  -webkit-background-clip: text, padding-box;
-  background-clip: text, padding-box;
-  transition: 0.3s var(--_s, 0s) linear,
-    background-size 0.3s calc(0.3s - var(--_s, 0s));
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  background: #2098D1;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
-.texto-header:hover {
-  --_p: 100%;
-  --_s: 0.3s;
+
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
 }
+
 
 /* Links para redes sociais*/
   /* Deixa cada ícone um do lado do outro */
@@ -128,7 +153,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
   animation: figuras-aparecem 2s;
 }
 
@@ -177,11 +201,12 @@ body {
 }
 
 .adote-gatinho:hover {
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
+
 
 /* Figura ajude anjos de rua */
 
@@ -200,8 +225,8 @@ body {
 
 .ajude-anjo-de-rua:hover {
   
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
@@ -223,8 +248,8 @@ body {
 }
 
 .cuide-alimente:hover {  
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
 
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
@@ -235,23 +260,19 @@ body {
 
 /* Footer (faz parte do corpo da página, mas só para deixar separado semanticamente) */
 
-
+#footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .footer-component {
   padding: 40px;
   display: inline-block;
 }
 
-.creditos {
-  
-}
-
-.denuncie {
-  
-}
-
-.icons {
-    
+.icons .título {
+  padding-bottom: 10px;
 }
 
   /* Tamanho, cor e animação dos ícones */
@@ -259,14 +280,12 @@ body {
 .fa-brands {
   width: 40px;
   font-size: 30px;
-  color: #000000;
+  color: #111;
   transition: 0.2s ease-in-out;
 }
 
 .fa-brands:hover {
-  width: 35px;
-  font-size: 35px;
-  color: #ffffff;
+  color: #666;
   transition: 0.2s ease-in-out;
 }
 
@@ -291,11 +310,11 @@ body {
 
 @keyframes welcome-aparece {
   0% {
-    margin-left: -20%;
+    margin-left: -50%;
   }
 
   100% {
-    margin-left: 3.5%;
+    margin-left: 0%;
   }
 }
 
