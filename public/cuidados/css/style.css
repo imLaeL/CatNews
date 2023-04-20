@@ -154,21 +154,41 @@ body {
   animation: texto-aparece 2s;
 }
 
-#gatos-filhotes-texto {
-  height: 0px;
+/* background das divs*/
+
+.topics {
+  margin-bottom: 5%;
+  background-color: #f7e0ec;
+  border-radius: 50px 50px 50px 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 2px 5px 10px;
 }
 
-article.open{
+/* articles */
+
+article {
+  padding: 20px;
+}
+
+/* articles abertos ou fechados */
+
+.close{
+  display: none;
+  height: 0%;
+}
+
+.open{
   display: block;
   height: 100%;
 }
+/*-------*/
 
-.gatos-filhotes .título {
+.título {
+  padding: 20px;
   display: inline-block;
 }
 
 .div-button {
-  margin-left: 2%;
+  margin-left: 5%;
   display: inline-block;
 }
 
@@ -179,7 +199,7 @@ article.open{
   font-size: 30px;
 }
 
-/* Animcações */
+/* Animacações */
 
 @keyframes título-aparece {
   0% {
