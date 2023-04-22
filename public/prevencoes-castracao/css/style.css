@@ -1,21 +1,27 @@
-/* Prevenções e castração */
+/* Cuidados Gerais */
 
 body {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 100%;
+    overflow-x: hidden;
 }
 
 /* Fundo da página */
 
+/* background-image => imagem de fundo.
+    background-size, position, repeat e attachment são para
+    a imagem ser exibida na tela toda, no centro, sem repetição
+    e sem rolar junto com a página */
+
 #fundo {
-
-    /* Dentro de url coloque o caminho para a imagem de fundo, ../img/<nome-da-imagem> */
-
+    padding-top: 80px;
     background-image: url(../img/fundo.jpg);
-    background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: 0px 0px;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    height: 300px;
 }
 
 /* Componentes do header */
@@ -24,14 +30,20 @@ body {
 /* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
 
 #componentes-do-header {
-    margin-top: 0.5%;
+    background-color: white;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
     animation: header-aparece 1s;
 }
 
 #logo {
     display: inline-block;
-    padding-right: 15% !important;
-    margin-left: 5%;
+    padding-right: 25% !important;
+    padding-left: 5%;
+    padding-bottom: 10px;
 }
 
 #CatNews {
@@ -42,44 +54,180 @@ body {
 /* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
 
 .outras-paginas {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-right: 2.25%;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-right: 4%;
+    margin-top: 2%;
     display: inline-block;
 }
+
+.outras-paginas:hover .texto-header {
+    color: #2098D1;
+    transition: 0.2s ease-in-out;
+}
+
+.texto-header {
+    color: #000000;
+    transition: 0.2s ease-in-out;
+}
+
 
 /* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 
 .links {
-    font-size: 25px;
+    font-size: 15px;
     color: #000000;
     text-decoration: none;
 }
 
+.links:hover {
+    text-decoration: none;
+}
+
 /* Animação de cada texto naquele header */
+/* linhazinha para o centro azul */
 
-.texto-header {
-    --b: 0.1em;
-    --c: #ffffff;
-
-    color: #0000;
-    padding-block: var(--b);
-    background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
-        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
-    transition: 0.3s var(--_s, 0s) linear,
-        background-size 0.3s calc(0.3s - var(--_s, 0s));
-}
-
-.texto-header:hover {
-    --_p: 100%;
-    --_s: 0.3s;
-}
-
-/* Links para redes sociais*/
-/* Deixa cada ícone um do lado do outro */
-.icons {
+.hvr-underline-from-center {
     display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+}
+
+
+/* Fim do header */
+
+/* Corpo da página*/
+
+#caixa-de-conteúdo {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(234, 234, 234));
+    height: 90%;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#prevencoes-castracao {
+    padding: 20px;
+}
+
+#título-prevencoes-castracao {
+    color: #333333;
+    font-family: 'Montserrat';
+    font-size: 55px;
+    font-weight: bold;
+    margin-top: 2%;
+    margin-left: 30%;
+    animation: título-aparece 1s;
+}
+
+#texto-prevencoes {
+    color: #333;
+    animation: texto-aparece 2s;
+}
+
+/* background das divs*/
+
+.topics {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-color: #f7e0ec;
+    border-radius: 50px 50px 50px 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 2px 5px 10px;
+}
+
+
+/* topic-content */
+
+.topic-content {
+    text-align: justify;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 50px;
+}
+
+
+.título {
+    font-family: 'Montserrat';
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5.75%;
+    margin-top: 5px;
+    padding: 20px;
+    display: inline-block;
+}
+
+
+.div-button {
+    margin-top: 30px;
+    margin-right: 25px;
+    float: right;
+}
+
+.button {
+    border: none;
+    background: none;
+    font-size: 30px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+/* Footer (faz parte do corpo da página, mas só para deixar separado semanticamente) */
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-component {
+    padding: 40px;
+    display: inline-block;
+}
+
+.icons .bloco-de-texto-título {
+    padding-bottom: 10px;
 }
 
 /* Tamanho, cor e animação dos ícones */
@@ -87,139 +235,54 @@ body {
 .fa-brands {
     width: 40px;
     font-size: 30px;
-    color: #000000;
+    color: #111;
     transition: 0.2s ease-in-out;
 }
 
 .fa-brands:hover {
-    width: 35px;
-    font-size: 40px;
-    color: #ffffff;
+    color: #666;
     transition: 0.2s ease-in-out;
 }
 
-/* Fim do header */
+.bloco-de-texto {
+    font-family: 'Montserrat';
+    line-height: 20px;
+    color: #333;
+    text-align: left;
+}
 
-/* Corpo da página*/
-
-/* Figuras e texto delas */
-/* Deixa as 3 figuras no centro */
-/* animação de aparecer */
-
-.figuras {
-    margin-top: 15%;
+.bloco-de-texto-título {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: figuras-aparecem 1.5s;
+    text-transform: uppercase;
+    margin-top: 50px;
 }
 
-/* Deixa os nomes um do lado do outro, alinhados ao centro e tira a cor azul que fica por ser um link */
-
-.figuras-link {
+.bloco-de-texto .telefones {
     text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    padding: 2.5%;
 }
 
-/* animação com os traços que passam por cima do texto */
+/* Animacações */
 
-.figuras-texto {
+@keyframes título-aparece {
+    0% {
+        margin-left: -10%;
+    }
 
-    padding: 20px;
-    font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-    --b: 0.1em;
-    --c: #939393;
-
-    color: #0000;
-    padding-block: var(--b);
-    background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
-        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
-    transition: 0.3s var(--_s, 0s) linear,
-        background-size 0.3s calc(0.3s - var(--_s, 0s));
+    100% {
+        margin-left: 30%;
+    }
 }
 
-.figuras-texto:hover {
-    --_p: 100%;
-    --_s: 0.3s;
+@keyframes texto-aparece {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
-
-/* Figura clínicas veterinárias */
-
-.clinicas-veterinarias {
-    background-image: url(../img/clinica-felinos.jpg);
-    background-repeat: no-repeat;
-    background-size: 180%;
-    background-position: center;
-    width: 230px;
-    height: 230px;
-    border-radius: 158px;
-    display: inline-block;
-
-    transition: 0.2s ease-in-out;
-}
-
-.clinicas-veterinarias:hover {
-    width: 260px;
-    height: 260px;
-    transition: 0.2s ease-in-out;
-    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
-}
-
-
-/* Figura locais de castração */
-
-.locais-castracao {
-    background-image: url(../img/locais-de-castração.jpg);
-    background-repeat: no-repeat;
-    background-size: 150%;
-    background-position: center;
-    width: 230px;
-    height: 230px;
-    border-radius: 158px;
-    display: inline-block;
-
-    transition: 0.2s ease-in-out;
-}
-
-.locais-castracao:hover {
-
-    width: 260px;
-    height: 260px;
-    transition: 0.2s ease-in-out;
-    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
-}
-
-/* Figura Pet Shops */
-
-.petshops {
-    background-image: url(../img/gato-comendo-racao.jpg);
-    background-repeat: no-repeat;
-    background-size: 200%;
-    background-position: center;
-    width: 230px;
-    height: 230px;
-    border-radius: 158px;
-
-    display: inline-block;
-
-    transition: 0.2s ease-in-out;
-}
-
-.petshops:hover {
-    width: 260px;
-    height: 260px;
-
-    transition: 0.2s ease-in-out;
-    box-shadow: rgb(255, 255, 255) 0px 5px 15px;
-}
-
-/* Animações */
 
 @keyframes header-aparece {
     0% {
@@ -227,20 +290,16 @@ body {
     }
 
     100% {
-        margin-top: 0.5%;
+        margin-top: -0.5rem;
     }
 }
 
-@keyframes figuras-aparecem {
-    0% {
-        opacity: 0%;
-    }
 
-    75% {
-        opacity: 0%;
-    }
 
-    100% {
-        opacity: 100%;
+/* Configurações de tamanhos de tela */
+
+@media screen and (min-width: 1600px) {
+    #texto-cuidados {
+        font-size: 25px;
     }
 }

@@ -9,13 +9,20 @@
     <title>Prevenções e Castração</title>
     <!--Referenciar css-->
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Fonte-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800"
+        rel="stylesheet">
     <!--Importante para pegar os ícones das redes sociais-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 
 <!--Corpo da página-->
 
-<body id="fundo">
+<body>
 
     <!--Header-->
 
@@ -23,42 +30,34 @@
         <nav>
 
             <!--Partezinha de cima, para ir para outras páginas-->
-
             <div id="componentes-do-header">
 
                 <div id="logo">
                     <a href="../index.html">
-                        <!--Referenciar onde está a imagem da logo, nesse caso está na pasta img-->
-                        <img id="CatNews" src="img/CatNews-logo.png">
+                        <img id="CatNews" src="img/CatNews-logo.png" />
                     </a>
                 </div>
 
-                <div class="outras-paginas">
+
+                <div class="outras-paginas hvr-underline-from-center">
                     <a class="links" href="../cuidados/index.html">
-                        <p class="texto-header">Cuidados Gerais</p>
+                        <p class="texto-header">CUIDADOS GERAIS</p>
                     </a>
                 </div>
 
-                <div class="outras-paginas">
-                    <a class="links" href="index.html">
-                        <p class="texto-header">Prevenções e Castração</p>
+
+                <div class="outras-paginas hvr-underline-from-center">
+                    <a class="links" href="./index.html">
+                        <p class="texto-header">PREVENÇÕES E CASTRAÇÃO</p>
                     </a>
                 </div>
 
-                <div class="outras-paginas">
+
+                <div class="outras-paginas hvr-underline-from-center">
                     <a class="links" href="../curiosidades/index.html">
-                        <p class="texto-header">Curiosidades</p>
+                        <p class="texto-header">CURIOSIDADES</p>
                     </a>
                 </div>
-
-                <!--Ícones do instagram, telefone e email-->
-
-                <div class="icons">
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                </div>
-
             </div>
 
         </nav>
@@ -69,28 +68,211 @@
     <!--Conteúdo da página em si-->
 
     <main>
-        <!--Sempre adicionar seções para cada parte da página, como "texto-introdução" por exemplo-->
+        <div id="fundo">
+            <!--Sempre adicionar seções para cada parte da página, como "texto-introdução" por exemplo-->
+
+            <section id="prevencoes-castracao">
+                <p id="título-prevencoes-castracao">
+                    Prevenções e Castração
+                </p>
+            </section>
+        </div>
+
         <section>
-            <div class="figuras">
-                <a class="figuras-link" href="clinicas/index.html">
-                  <div class="clinicas-veterinarias"></div>
-                  <p class="figuras-texto">Clínicas Veterinárias</p>
-                </a>
-      
-                <a class="figuras-link" href="#">
-                  <div class="locais-castracao"></div>
-                  <p class="figuras-texto">Locais de Castração</p>
-                </a>
-      
-                <a class="figuras-link" href="#">
-                  <div class="petshops"></div>
-                  <p class="figuras-texto">Pet Shops</p>
-                </a>
+
+            <!--Tudo sobre gatos filhotes-->
+            <div id="texto-prevencoes">
+
+                <div class="prevencoes topics">
+
+                    <div class="título">
+                        <p>
+                            PREVENÇÕES
+                        </p>
+                    </div>
+
+                    <div class="topic-content">
+                        <p>
+                            Cuidar de um gato pode ser uma experiência maravilhosa e gratificante,
+                            mas também exige cuidados e precauções para garantir a saúde e segurança de todos.
+                            Ao seguir essas medidas preventivas, você pode desfrutar de uma vida longa e saudável
+                            ao lado do seu felino de estimação.
+                        </p>
+                    </div>
+
+                </div>
+                <!--Vacinas-->
+                <div class="div-vacinas topics">
+                    <div class="título">
+                        <p>
+                            VACINAS
+                        </p>
+                    </div>
+
+
+                    <div class="div-button">
+                        <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+                            data-target="#vacinas" aria-expanded="false" aria-controls="vacinas"></button>
+                    </div>
+
+                    <div id="vacinas" class="collapse">
+                        <div class="topic-content">
+                            <p>
+                                Assim como os seres humanos, os gatos também precisam de vacinas para
+                                protegê-los de doenças potencialmente graves e até fatais. As vacinas
+                                funcionam estimulando o sistema imunológico do gato a produzir anticorpos
+                                contra agentes patogênicos específicos, como vírus e bactérias.
+                            </p>
+
+                            <p>
+                                Algumas das doenças mais comuns que as vacinas podem prevenir em gatos incluem a
+                                rinotraqueíte viral felina, calicivírus felino, panleucopenia felina, clamidiose e
+                                raiva. Essas doenças podem ser transmitidas entre gatos ou dos gatos para os humanos,
+                                tornando a vacinação importante para proteger tanto o gato quanto seus proprietários.
+                            </p>
+
+                            <p>
+                                É importante lembrar que a vacinação deve ser feita por um veterinário qualificado e
+                                deve seguir um cronograma específico, levando em conta fatores como idade, histórico de
+                                vacinação e riscos ambientais. Também é importante manter as vacinas em dia, com
+                                reforços regulares para garantir a eficácia da imunização.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Escovação-->
+                <div class="div-escovacao topics">
+                    <div class="título">
+                        <p>ESCOVAÇÃO</p>
+                    </div>
+
+                    <div class="div-button">
+                        <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+                            data-target="#escovacao" aria-expanded="false" aria-controls="escovacao"></button>
+                    </div>
+
+                    <div id="escovacao" class="collapse">
+                        <div class="topic-content">
+                            <p>
+                                Apesar dos gatos terem uma higiene exaustiva, é necessário que escovem o seu pelo para
+                                evitar as bolas de pelo no estômago, algo que pode originar um problema grave.
+                            </p>
+
+                            <p>
+                                A frequência irá variar da escovação diária até a escovação semanal e dependerá sempre
+                                do tipo de pelo do gato, mais comprido ou mais curto.
+                            </p>
+
+                            <p>
+                                O seu gato gosta que lhe dê todas as atenções e o escove regularmente. Preste atenção
+                                especial ao seu pelo na primavera e outono, que é quando se costuma realizar a mudança
+                                de pelo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--Alimentação-->
+                <div class="div-alimentacao topics">
+                    <div class="título">
+                        <p>
+                            ALIMENTAÇÃO
+                        </p>
+                    </div>
+
+                    <div class="div-button">
+                        <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+                            data-target="#alimentacao" aria-expanded="false" aria-controls="alimentacao"></button>
+                    </div>
+
+                    <div id="alimentacao" class="collapse">
+                        <div class="topic-content">
+                            <p>
+                                O gato deve ter uma alimentação adequada para cada etapa da sua vida correspondente ao
+                                tipo de comida Junior, Adult ou Senior. Estas gamas estão disponíveis para venda para
+                                evitar deficiências em cada etapa da sua vida.
+                            </p>
+
+                            <p>
+                                A alimentação deve ser de alta qualidade e também recomendamos que seja variada entre
+                                ração, comida úmida e dietas caseiras, sendo de entre todos os tipos de alimentação a
+                                mais importante a ração.
+                            </p>
+
+                            <p>
+                                Além disso, em fases de crescimento ou geriatria, tem disponíveis à venda vitaminas e
+                                suplementos ideias para que se desenvolva e mantenha saudável.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+
             </div>
+
+
+
         </section>
-       
+
     </main>
 
+    <div id="footer">
+        <!-- Créditos -->
+        <div class="footer-component creditos">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>créditos</strong>
+            </div>
+            <div class="bloco-de-texto">
+                <strong>
+                    Shannon Bruna Maria de Lima Gomes
+                    <br>
+                    Kayck Jesse dos Santos
+                    <br>
+                    Janaína Vitória Soares Cavalcante
+                    <br>
+                    Isaque Lael de Sena Moreira
+                </strong>
+            </div>
+        </div>
+        <!-- Denuncie -->
+        <div class="footer-component denuncie">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>denuncie</strong>
+            </div>
+
+            <div class="bloco-de-texto">
+                <strong>
+                    Paraíba - <a class="telefones" href="tel:197">197</a>
+                    <br>
+                    IBAMA (Animais Silvestres) - <a class="telefones" href="tel:0800618080">0800 61 8080</a>
+                    <br>
+                    Disque denúncia - <a class="telefones" href="tel:181">181</a>
+                </strong>
+            </div>
+        </div>
+        <!-- Redes sociais -->
+        <div class="footer-component icons">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>redes sociais</strong>
+            </div>
+            <a href="tel:+558399122-6876" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="http://instagram.com/sitecatnews?igshid=YmMyMTA2M2Y" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="http://twitter.com/sitecatnews?t=SWM_YpbfpbivRhi5kFFzKg&s=09" target="_blank"><i
+                    class="fa-brands fa-twitter"></i></a>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

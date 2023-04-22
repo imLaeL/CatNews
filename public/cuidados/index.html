@@ -9,6 +9,9 @@
   <title>Cuidados Gerais</title>
   <!--Referenciar css-->
   <link rel="stylesheet" href="css/style.css" type="text/css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!--Fonte-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800"
     rel="stylesheet">
@@ -36,21 +39,21 @@
 
 
         <div class="outras-paginas hvr-underline-from-center">
-          <a class="links" href="cuidados/index.html">
-            <p class="texto-header">CUIDADOS GERAIS </p>
+          <a class="links" href="./index.html">
+            <p class="texto-header">CUIDADOS GERAIS</p>
           </a>
         </div>
 
 
         <div class="outras-paginas hvr-underline-from-center">
-          <a class="links" href="prevencoes-castracao/index.html">
+          <a class="links" href="../prevencoes-castracao/index.html">
             <p class="texto-header">PREVENÇÕES E CASTRAÇÃO</p>
           </a>
         </div>
 
 
         <div class="outras-paginas hvr-underline-from-center">
-          <a class="links" href="curiosidades/index.html">
+          <a class="links" href="../curiosidades/index.html">
             <p class="texto-header">CURIOSIDADES</p>
           </a>
         </div>
@@ -78,22 +81,18 @@
 
       <!--Tudo sobre gatos filhotes-->
       <div id="texto-cuidados">
-        
-        <script src="js/main.js"></script>
-        
+
+
+
         <div class="gatos-filhotes topics">
 
           <div class="título">
-            <h2>
+            <p>
               TUDO SOBRE GATOS FILHOTES
-            </h2>
+            </p>
           </div>
 
-          <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('gatos-filhotes-texto')"></button>
-          </div>
-
-          <article id="gatos-filhotes-texto" class="close">
+          <div class="topic-content">
             <p>
               Quem vai <strong>adotar o pet nos primeiros meses de vida</strong>, precisa saber tudo sobre gatos
               filhotes.
@@ -115,7 +114,7 @@
             </p>
 
             <p>
-              Aqui tratamos quase tudo sobre gato filhote, mas faltou algo muito importante!
+              Aqui tratamos quase tudo sobre gatos filhotes, mas faltou algo muito importante!
               Procure um médico veterinário para realizar a vacinação e indicar os vermífugos e antipulgas ideais.
             </p>
 
@@ -124,255 +123,286 @@
               saudável
               e feliz.
             </p>
-          </article>
+          </div>
 
         </div>
-        
+
         <!--Consulta com médico veterinário anualmente-->
         <div class="div-veterinário topics">
           <div class="título">
-            <h2>
+            <p class="text-título">
               VETERINÁRIO
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('veterinário')"></button>
+            <button type="button" class="button fa-solid fa-angle-right fa-rotate-90" data-toggle="collapse"
+              data-target="#veterinário" aria-expanded="false" aria-controls="veterinário"></button>
           </div>
 
-          <article id="veterinário" class="close">
-            <p>
-              Os gatos devem fazer visitas ao médico veterinário pelo menos uma vez ao ano.
-              Além de avaliar a saúde do animal, o profissional poderá aplicar as vacinas anuais e manter seu pet
-              imunizado
-              contra doenças importantes.
-            </p>
+          <div id="veterinário" class="collapse">
+            <div class="topic-content">
+              <p>
+                Os gatos devem fazer visitas ao médico veterinário pelo menos uma vez ao ano.
+                Além de avaliar a saúde do animal, o profissional poderá aplicar as vacinas anuais e manter seu pet
+                imunizado
+                contra doenças importantes.
+              </p>
 
-            <p>
-              A vacina chamada V3, V4 ou V5 protege seu gatinho contra panleucopenia, calicivirose, rinotraqueíte e
-              outras
-              doenças graves.
-              A Antirrábica evita que seu pet contraia a Raiva, uma zoonose que pode levar à óbito.
-              Essas duas aplicações são fundamentais para cuidados com gatos que têm acesso à rua ou aqueles que ficam
-              apenas dentro de casa.
-              Vacinar seu gato é uma importante forma de cuidado e carinho.
-            </p>
+              <p>
+                A vacina chamada V3, V4 ou V5 protege seu gatinho contra panleucopenia, calicivirose, rinotraqueíte e
+                outras
+                doenças graves.
+                A Antirrábica evita que seu pet contraia a Raiva, uma zoonose que pode levar à óbito.
+                Essas duas aplicações são fundamentais para cuidados com gatos que têm acesso à rua ou aqueles que ficam
+                apenas dentro de casa.
+                Vacinar seu gato é uma importante forma de cuidado e carinho.
+              </p>
 
-            <p>
-              Fazer o acompanhamento veterinário é a melhor forma de saber tudo sobre gato, já que o profissional é
-              especialista nisso e está sempre atualizado.
-            </p>
-          </article>
+              <p>
+                Fazer o acompanhamento veterinário é a melhor forma de saber tudo sobre gato, já que o profissional é
+                especialista nisso e está sempre atualizado.
+              </p>
+            </div>
+          </div>
         </div>
+
         <!--Aplique anti parasitas também em animais que ficam apenas em casa-->
         <div class="div-anti-parasitas topics">
           <div class="título">
-            <h2>
+            <p>
               ANTI-PARASITAS
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('anti-parasitas')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#anti-parasitas" aria-expanded="false" aria-controls="anti-parasitas"></button>
           </div>
 
-          <article id="anti-parasitas" class="close">
-            <p>
-              Mesmo animais que não saem de casa, devem ser vermifugados periodicamente.
-              Outro medicamento que não pode ser esquecido é o remédio antipulgas, que mantêm seu pet livre de coceira e
-              diversas doenças.
-              Converse com seu médico veterinário para definir qual a frequência ideal para uso deles.
-            </p>
+          <div id="anti-parasitas" class="collapse">
+            <div class="topic-content">
+              <p>
+                Mesmo animais que não saem de casa, devem ser vermifugados periodicamente.
+                Outro medicamento que não pode ser esquecido é o remédio antipulgas, que mantêm seu pet livre de coceira
+                e
+                diversas doenças.
+                Converse com seu médico veterinário para definir qual a frequência ideal para uso deles.
+              </p>
 
-            <p>
-              Para não esquecer e deixar seu gato exposto, faça uma Assinatura Cobasi e receba seus medicamentos sem
-              sair
-              de
-              casa na periodicidade que você escolher.
-            </p>
-          </article>
+              <p>
+                Para não esquecer e deixar seu gato exposto, faça uma Assinatura Cobasi e receba seus medicamentos sem
+                sair
+                de
+                casa na periodicidade que você escolher.
+              </p>
+            </div>
+          </div>
         </div>
         <!--O gato pode tomar leite?-->
 
         <div class="div-leite topics">
           <div class="título">
-            <h2>
+            <p>
               NUNCA OFEREÇA LEITE AO SEU GATO
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('oferecer-leite')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#leite" aria-expanded="false" aria-controls="leite"></button>
           </div>
 
-          <article id="oferecer-leite" class="close">
-            <p>
-              Entre as informações mais importantes e que causam mais dúvidas de quem quer saber tudo sobre gato, está o
-              famoso leite!
-              A alimentação dos gatos deve ser feita com ração seca, sachês e latas de alimentos úmidos. <strong>Nunca
-                ofereça
-                leite</strong> ou outros alimentos humanos para seu gatinho.
-            </p>
+          <div id="leite" class="collapse">
+            <div class="topic-content">
+              <p>
+                Entre as informações mais importantes e que causam mais dúvidas de quem quer saber tudo sobre gato, está
+                o
+                famoso leite!
+                A alimentação dos gatos deve ser feita com ração seca, sachês e latas de alimentos úmidos. <strong>Nunca
+                  ofereça
+                  leite</strong> ou outros alimentos humanos para seu gatinho.
+              </p>
 
-            <p>
-              O leite de vaca, aquele mais comum, possui lactose, uma molécula que não é digerida pelos gatos, causando
-              dores, desconfortos, vômito e diarreia.
-              <strong>Os gatos devem tomar apenas leite quando são filhotes e da própria mãe.</strong>
-            </p>
+              <p>
+                O leite de vaca, aquele mais comum, possui lactose, uma molécula que não é digerida pelos gatos,
+                causando
+                dores, desconfortos, vômito e diarreia.
+                <strong>Os gatos devem tomar apenas leite quando são filhotes e da própria mãe.</strong>
+              </p>
 
-            <p>
-              A ração úmida colabora para a hidratação dos animais. Doenças renais ou no trato urinário são comuns em
-              gatos
-              e parte importante da prevenção é feita com o consumo adequado de água.
-              As <strong>rações úmidas</strong> adicionam líquido na dieta dos gatos. Por isso, estabeleça uma rotina
-              alimentar que inclua
-              esses alimentos.
-            </p>
+              <p>
+                A ração úmida colabora para a hidratação dos animais. Doenças renais ou no trato urinário são comuns em
+                gatos
+                e parte importante da prevenção é feita com o consumo adequado de água.
+                As <strong>rações úmidas</strong> adicionam líquido na dieta dos gatos. Por isso, estabeleça uma rotina
+                alimentar que inclua
+                esses alimentos.
+              </p>
 
-            <p>
-              Não sabe qual ração dar para seu gato? Escolha um alimento de boa qualidade e adequado ao perfil do seu
-              pet.
-              Você encontra alimentos para filhotes, idosos, animais castrados, além de rações medicamentosas.
-            </p>
-          </article>
+              <p>
+                Não sabe qual ração dar para seu gato? Escolha um alimento de boa qualidade e adequado ao perfil do seu
+                pet.
+                Você encontra alimentos para filhotes, idosos, animais castrados, além de rações medicamentosas.
+              </p>
+            </div>
+          </div>
         </div>
         <!--Substituia bebedouros por fontes-->
 
         <div class="div-bebedouros topics">
           <div class="título">
-            <h2>
+            <p>
               SUBSTITUA OS BEBEDOUROS
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('bebedouros')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#bebedouros" aria-expanded="false" aria-controls="bebedouros">
           </div>
 
-          <article id="bebedouros" class="close">
-            <p>
-              A hidratação é fundamental para manter seu gato sempre saudável. A melhor forma de estimular o consumo de
-              água
-              é usando um artifício para atrair o gatinho. A fonte de água é uma excelente alternativa para gatos que
-              não
-              gostam de
-              potinhos convencionais.
-            </p>
+          <div id="bebedouros" class="collapse">
+            <div class="topic-content">
+              <p>
+                A hidratação é fundamental para manter seu gato sempre saudável. A melhor forma de estimular o consumo
+                de
+                água
+                é usando um artifício para atrair o gatinho. A fonte de água é uma excelente alternativa para gatos que
+                não
+                gostam de
+                potinhos convencionais.
+              </p>
 
-            <p>
-              Mais uma vez, os instintos se sobressaem. A água em movimento atrai a atenção e estimula a hidratação dos
-              pets.
-              Isso tudo colabora para evitar doenças renais e no trato urinário.
-            </p>
-          </article>
+              <p>
+                Mais uma vez, os instintos se sobressaem. A água em movimento atrai a atenção e estimula a hidratação
+                dos
+                pets.
+                Isso tudo colabora para evitar doenças renais e no trato urinário.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Bem-estar físico e mental -->
 
         <div class="div-bem-estar topics">
           <div class="título">
-            <h2>
+            <p>
               BEM-ESTAR FÍSICO E MENTAL
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('bem-estar')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#bem-estar" aria-expanded="false" aria-controls="bem-estar">
           </div>
 
-          <article id="bem-estar" class="close">
-            <p>
-              Os cuidados com gatos vão além de idas ao veterinário e a correta administração de medicamentos. <strong>A
-                gratificação é o enriquecimento ambiental</strong> que torna a rotina do seu pet mais saudável e
-              agradável.
-              Tudo isso colabora para a saúde e o bem-estar físico e mental do seu gato.
-            </p>
+          <div id="bem-estar" class="collapse">
+            <div class="topic-content">
+              <p>
+                Os cuidados com gatos vão além de idas ao veterinário e a correta administração de medicamentos.
+                <strong>A
+                  gratificação é o enriquecimento ambiental</strong> que torna a rotina do seu pet mais saudável e
+                agradável.
+                Tudo isso colabora para a saúde e o bem-estar físico e mental do seu gato.
+              </p>
 
-            <p>
-              Uma das principais ações da gratificação é a verticalização do ambiente, ou seja, o uso de elementos que
-              criam uma
-              série de oportunidades para seu gato escalar, descansar e se divertir nas alturas.
-              <strong>As torres, os arranhadores verticais e até as prateleiras</strong> ajudam a criar um espaço para
-              seu
-              gatinho ter mais
-              saúde e bem-estar.
-            </p>
-          </article>
+              <p>
+                Uma das principais ações da gratificação é a verticalização do ambiente, ou seja, o uso de elementos que
+                criam uma
+                série de oportunidades para seu gato escalar, descansar e se divertir nas alturas.
+                <strong>As torres, os arranhadores verticais e até as prateleiras</strong> ajudam a criar um espaço para
+                seu
+                gatinho ter mais
+                saúde e bem-estar.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Higiene e comportamento -->
 
         <div class="div-higiente topics">
           <div class="título">
-            <h2>
+            <p>
               HIGIENE E COMPORTAMENTO
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('higiene')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#higiene" aria-expanded="false" aria-controls="higiene">
           </div>
 
-          <article id="higiene" class="close">
-            <p>
-              Dizem que gatos são <strong>animais limpos</strong> e basta conviver alguns dias com um para confirmar
-              isso.
-              Entre os principais cuidados com os gatos, está a rotina de higiene.
-              A limpeza da caixa de areia também é muito importante para a saúde do gato,
-              pois colabora com o hábito do animal fazer as necessidades no lugar certo, evitando sujeira pela casa e a
-              constipação.
-            </p>
+          <div id="higiene" class="collapse">
+            <div class="topic-content">
+              <p>
+                Dizem que gatos são <strong>animais limpos</strong> e basta conviver alguns dias com um para confirmar
+                isso.
+                Entre os principais cuidados com os gatos, está a rotina de higiene.
+                A limpeza da caixa de areia também é muito importante para a saúde do gato,
+                pois colabora com o hábito do animal fazer as necessidades no lugar certo, evitando sujeira pela casa e
+                a
+                constipação.
+              </p>
 
-            <p>
-              A <strong>caixa de areia</strong> deve ser do tamanho adequado para seu gato e ser mantida sempre limpa.
-              Remova fezes e urina
-              e lave a caixinha a cada dois dias.
-            </p>
+              <p>
+                A <strong>caixa de areia</strong> deve ser do tamanho adequado para seu gato e ser mantida sempre limpa.
+                Remova fezes e urina
+                e lave a caixinha a cada dois dias.
+              </p>
 
-            <p>
-              O <strong>banho</strong> é outro elemento que está na rotina de cuidados com gatos. O famoso “banho de
-              gato”
-              os mantêm limpos
-              e com a pelagem bonita, mas tenha cuidado pois <strong>o banho é necessário apenas em casos de extrema
-               necessidade como o excesso de sujeira no animal.</strong>
-    
-              Você pode ajudar escovando o pet a cada dois dias. A pelagem fica hidratada, bonita e você ainda evita as
-              bolas de pelos.
-              Os gatos ainda podem tomar banho em pet shops ou em casa. O aconselhável é acostumar seu pet desde
-              filhote.
-            </p>
-          </article>
+              <p>
+                O <strong>banho</strong> é outro elemento que está na rotina de cuidados com gatos. O famoso “banho de
+                gato”
+                os mantêm limpos
+                e com a pelagem bonita, mas tenha cuidado pois <strong>o banho é necessário apenas em casos de extrema
+                  necessidade como o excesso de sujeira no animal.</strong>
+
+                Você pode ajudar escovando o pet a cada dois dias. A pelagem fica hidratada, bonita e você ainda evita
+                as
+                bolas de pelos.
+                Os gatos ainda podem tomar banho em pet shops ou em casa. O aconselhável é acostumar seu pet desde
+                filhote.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Tela nas Janelas -->
 
         <div class="div-tela-nas-janelas topics">
           <div class="título">
-            <h2>
+            <p>
               INSTALE TELAS NAS JANELAS
-            </h2>
+            </p>
           </div>
 
           <div class="div-button">
-            <button class="button fa-solid fa-plus" onclick="showMore('tela-nas-janelas')"></button>
+            <button class="button fa-solid fa-angle-right fa-rotate-90" type="button" data-toggle="collapse"
+              data-target="#tela-nas-janelas" aria-expanded="false" aria-controls="tela-nas-janelas"></button>
           </div>
 
-          <article id="tela-nas-janelas" class="close">
-            <p>
-              Gatos que saem na rua são expostos a diversas doenças, maus-tratos, risco de atropelamento e brigas com
-              outros animais.
-              O ideal é não permitir que seu gatinho saia na rua e para isso, as telas de proteção são fundamentais.
-            </p>
+          <div id="tela-nas-janelas" class="collapse">
+            <div class="topic-content">
+              <p>
+                Gatos que saem na rua são expostos a diversas doenças, maus-tratos, risco de atropelamento e brigas com
+                outros animais.
+                O ideal é não permitir que seu gatinho saia na rua e para isso, as telas de proteção são fundamentais.
+              </p>
 
-            <p>
-              Para quem mora em apartamentos, telar as janelas é ainda mais importante. Apesar de habilidosos, os gatos
-              podem
-              facilmente cair por uma janela ou varanda sem tela. Até mesmo janelas basculantes, como de banheiros,
-              devem
-              ser teladas.
-              Os gatos são curiosos por isso, cuidado nunca é demais para manter a integridade física do seu bichinho.
-            </p>
-          </article>
+              <p>
+                Para quem mora em apartamentos, telar as janelas é ainda mais importante. Apesar de habilidosos, os
+                gatos
+                podem
+                facilmente cair por uma janela ou varanda sem tela. Até mesmo janelas basculantes, como de banheiros,
+                devem
+                ser teladas.
+                Os gatos são curiosos por isso, cuidado nunca é demais para manter a integridade física do seu bichinho.
+              </p>
+            </div>
+          </div>
         </div>
 
 
@@ -384,6 +414,61 @@
 
   </main>
 
+  <div id="footer">
+    <!-- Créditos -->
+    <div class="footer-component creditos">
+      <div class="bloco-de-texto bloco-de-texto-título">
+        <strong>créditos</strong>
+      </div>
+      <div class="bloco-de-texto">
+        <strong>
+          Shannon Bruna Maria de Lima Gomes
+          <br>
+          Kayck Jesse dos Santos
+          <br>
+          Janaína Vitória Soares Cavalcante
+          <br>
+          Isaque Lael de Sena Moreira
+        </strong>
+      </div>
+    </div>
+    <!-- Denuncie -->
+    <div class="footer-component denuncie">
+      <div class="bloco-de-texto bloco-de-texto-título">
+        <strong>denuncie</strong>
+      </div>
+      
+      <div class="bloco-de-texto">
+        <strong>
+          Paraíba - <a class="telefones" href="tel:197">197</a>
+          <br>
+          IBAMA (Animais Silvestres) - <a class="telefones" href="tel:0800618080">0800 61 8080</a>
+          <br>
+          Disque denúncia - <a class="telefones" href="tel:181">181</a>
+        </strong>
+      </div>
+    </div>
+    <!-- Redes sociais -->
+    <div class="footer-component icons">
+      <div class="bloco-de-texto bloco-de-texto-título">
+        <strong>redes sociais</strong>
+      </div>
+      <a href="tel:+558399122-6876" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="http://instagram.com/sitecatnews?igshid=YmMyMTA2M2Y" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="http://twitter.com/sitecatnews?t=SWM_YpbfpbivRhi5kFFzKg&s=09" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
