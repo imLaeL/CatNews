@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
     "name": "Clinica Maneira",
-    "img-url": "imagem maneirinha",
+    "imgurl": "imagem maneirinha",
     "city": "João Pessoa"
 }
 

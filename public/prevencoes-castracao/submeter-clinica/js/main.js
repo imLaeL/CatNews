@@ -1,7 +1,7 @@
 function getClinics(clinic) {
     return `
         <div class="clinic">
-            <img src="${clinic.imageurl}" width="400px">
+            <img src="${clinic.imageurl}" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
             <p class="clinic-name city">${clinic.city}</p>
         </div>
@@ -35,11 +35,13 @@ function loadFormSubmit() {
   
       const name = document.querySelector('#name').value;
   
-      const img = document.querySelector('#img').value;
+      const imageurl = document.querySelector('#img').value;
 
-      const city = document.querySelector('#cidade').value
+      const city = document.querySelector('#city').value;
+
+ //     const city = document.querySelector('#cidade').value
   
-      const clinic = { name, img, city };
+      const clinic = { name, imageurl, city };
   
       const response = await fetch('/clinicas-submetidas', {
         method: 'post',

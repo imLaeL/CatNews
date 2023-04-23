@@ -67,6 +67,7 @@
                 </p>
             </section>
 
+        </div>
             <div class="submeter-clinica-texto">
 
                 <div class="titulo">
@@ -108,15 +109,12 @@
 
                             <div class="mb3">
                                 <label for="cidade" class="form-label">Cidade</label>
-                                <select class="form-select" id="cidade required">
-                                    <option selected disabled value="">Selecione</option>
-                                    <option>João Pessoa</option>
-                                    <option>...</option>
-                                </select>
+                                <input type="name" class="form-control" id="city"
+                                    placeholder="Ex: João Pessoa">
                             </div>
 
-                            <div class="mb3">
-                                <input type="submit" class="form-control btn btn-secondary" id="submit">   
+                            <div class="mb3" id="submit-button">
+                                <button type="submit" class="form-control btn btn-secondary" placeholder="Submeter" id="submit">Submeter</button>
                             </div>
 
                         </form>
@@ -126,15 +124,60 @@
 
 
 
-            <div id="submited-clinics">
-               
-
-            </div>
+            <div id="submited-clinics"></div>
 
 
-        </div>
+        
 
     </main>
+
+    <div id="footer">
+        <!-- Créditos -->
+        <div class="footer-component creditos">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>créditos</strong>
+            </div>
+            <div class="bloco-de-texto">
+                <strong>
+                    Shannon Bruna Maria de Lima Gomes
+                    <br>
+                    Kayck Jesse dos Santos
+                    <br>
+                    Janaína Vitória Soares Cavalcante
+                    <br>
+                    Isaque Lael de Sena Moreira
+                </strong>
+            </div>
+        </div>
+        <!-- Denuncie -->
+        <div class="footer-component denuncie">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>denuncie</strong>
+            </div>
+
+            <div class="bloco-de-texto">
+                <strong>
+                    Paraíba - <a class="telefones" href="tel:197">197</a>
+                    <br>
+                    IBAMA (Animais Silvestres) - <a class="telefones" href="tel:0800618080">0800 61 8080</a>
+                    <br>
+                    Disque denúncia - <a class="telefones" href="tel:181">181</a>
+                </strong>
+            </div>
+        </div>
+        <!-- Redes sociais -->
+        <div class="footer-component icons">
+            <div class="bloco-de-texto bloco-de-texto-título">
+                <strong>redes sociais</strong>
+            </div>
+            <a href="tel:+558399122-6876" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="http://instagram.com/sitecatnews?igshid=YmMyMTA2M2Y" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="http://twitter.com/sitecatnews?t=SWM_YpbfpbivRhi5kFFzKg&s=09" target="_blank"><i
+                    class="fa-brands fa-twitter"></i></a>
+        </div>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

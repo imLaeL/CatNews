@@ -1,4 +1,23 @@
-/* Cuidados Gerais */
+/* Submeter Clínica */
+
+::-webkit-scrollbar {
+    width: 14.5px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888888;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
 
 body {
     background-color: #ffffff;
@@ -19,7 +38,7 @@ p {
 
 #fundo {
     padding-top: 80px;
-    background-image: url(../img/clinica-felinos.jpg);
+    background-image: url(../img/background.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -148,9 +167,9 @@ p {
 }
 
 .submeter-clinica-texto {
-    margin-top: 150px;
-    padding-left: 200px;
-    padding-right: 200px;
+    margin-top: 50px;
+    padding-left: 15rem;
+    padding-right: 15rem;
     padding-bottom: 40px;
 }
 
@@ -169,12 +188,17 @@ p {
 /* Clínicas */
 
 #submited-clinics {
-    margin-left: 10%;
-    margin-right: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-right: 13rem;
+    padding-left: 13rem;
 }
 
 .clinic {
     padding: 20px;
+    padding-right: 2rem;
+    padding-left: 2rem;
     display: inline-block;
 }
 
@@ -183,11 +207,14 @@ p {
 }
 
 .clinic-name {
-    padding-top: 10px;
-    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+    font-size: 25px;
 }
 
-.clinic-name .city {
+.city {
+    font-size: 20px;
     padding-top: 1px;
 }
 
@@ -219,7 +246,7 @@ p {
 
 .addclinicbutton p {
     color: white;
-    text-align: center; 
+    text-align: center;
     text-transform: uppercase;
     padding-right: 20px;
     padding-left: 20px;
@@ -236,6 +263,63 @@ p {
     padding: 20px;
     margin-left: 30%;
     margin-right: 30%;
+}
+
+#submit-button {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.btn {
+    padding-top: 10px;
+}
+
+/* Footer (faz parte do corpo da página, mas só para deixar separado semanticamente) */
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-component {
+    padding: 40px;
+    display: inline-block;
+}
+
+.icons .bloco-de-texto-título {
+    padding-bottom: 10px;
+}
+
+/* Tamanho, cor e animação dos ícones */
+
+.fa-brands {
+    width: 40px;
+    font-size: 30px;
+    color: #111;
+    transition: 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+    color: #666;
+    transition: 0.2s ease-in-out;
+}
+
+.bloco-de-texto {
+    font-family: 'Montserrat';
+    line-height: 20px;
+    color: #333;
+    text-align: left;
+}
+
+.bloco-de-texto-título {
+    display: flex;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+.bloco-de-texto .telefones {
+    text-decoration: none;
 }
 
 /* Animações */

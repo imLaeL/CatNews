@@ -1,4 +1,23 @@
-/* Cuidados Gerais */
+/* Prevenções e castração */
+
+::-webkit-scrollbar {
+    width: 14.5px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888888;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
 
 body {
     background-color: #ffffff;
@@ -237,6 +256,7 @@ body {
 }
 
 .clinicas-background {
+    margin-top: 2rem;
     background-color: rgb(232, 56, 56);
     border-radius: 50px 50px 50px 50px;
     width: 240px;
@@ -350,9 +370,3 @@ body {
 
 
 /* Configurações de tamanhos de tela */
-
-@media screen and (min-width: 1600px) {
-    #texto-cuidados {
-        font-size: 25px;
-    }
-}
