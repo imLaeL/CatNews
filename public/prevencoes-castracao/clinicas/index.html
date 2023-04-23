@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Coloque o título-->
     <title>Clínicas Veterinárias</title>
+    <!--Fonte-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800"
+        rel="stylesheet">
     <!--Referenciar css-->
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!--Importante para pegar os ícones das redes sociais-->
@@ -15,9 +19,10 @@
 
 <!--Corpo da página-->
 
-<body id="fundo">
+<body>
 
     <!--Header-->
+
 
     <header>
         <nav>
@@ -28,37 +33,30 @@
 
                 <div id="logo">
                     <a href="../../index.html">
-                        <!--Referenciar onde está a imagem da logo, nesse caso está na pasta img-->
-                        <img id="CatNews" src="img/CatNews-logo.png">
+                        <img id="CatNews" src="img/CatNews-logo.png" />
                     </a>
                 </div>
 
-                <div class="outras-paginas">
+
+                <div class="outras-paginas hvr-underline-from-center">
                     <a class="links" href="../../cuidados/index.html">
-                        <p class="texto-header">Cuidados Gerais</p>
+                        <p class="texto-header">CUIDADOS GERAIS</p>
                     </a>
                 </div>
 
-                <div class="outras-paginas">
+
+                <div class="outras-paginas hvr-underline-from-center">
                     <a class="links" href="../index.html">
-                        <p class="texto-header">Prevenções e Castração</p>
+                        <p class="texto-header">PREVENÇÕES E CASTRAÇÃO</p>
                     </a>
                 </div>
 
-                <div class="outras-paginas">
+
+                <div class="outras-paginas hvr-underline-from-center">
                     <a class="links" href="../../curiosidades/index.html">
-                        <p class="texto-header">Curiosidades</p>
+                        <p class="texto-header">CURIOSIDADES</p>
                     </a>
                 </div>
-
-                <!--Ícones do instagram, telefone e email-->
-
-                <div class="icons">
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                </div>
-
             </div>
 
         </nav>
@@ -71,21 +69,37 @@
     <main>
         <!--Sempre adicionar seções para cada parte da página, como "texto-introdução" por exemplo-->
 
+        <div id="fundo">
+            <section>
 
-        <section>
+                <div id="caixa-de-conteudo">
 
-            <div id="caixa-de-conteudo">
+                    <p id="título">
+                        Clínicas Veterinárias de João Pessoa
+                    </p>
 
-                <p id="título">
-                    Clínicas Veterinárias de João Pessoa
-                </p>
+                    <section id="clinicas"></section>
 
-                <section id="clinicas"></section>
-
-            </div>
+                </div>
 
 
-        </section>
+            </section>
+
+            <section class="adicionar-clinica">
+                
+                <div class="adicionar-clinica-texto">
+                    <p>Você conhece alguma clínica que não está listada? Se sim, você bote submetê-la logo abaixo:</p>
+                </div>
+
+                <div class="button-adicionar">
+                    <a href="../submeter-clinica/index.html" class="link-adicionar">
+                        <p>adicionar clínica</p>
+                    </a>
+                </div>
+
+            </section>
+
+        </div>
     </main>
     <script src="js/main.js" type="module"></script>
 

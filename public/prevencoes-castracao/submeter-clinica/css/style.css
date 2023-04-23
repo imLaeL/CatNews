@@ -6,6 +6,10 @@ body {
     overflow-x: hidden;
 }
 
+p {
+    font-family: 'Montserrat';
+}
+
 /* Fundo da página */
 
 /* background-image => imagem de fundo.
@@ -15,7 +19,7 @@ body {
 
 #fundo {
     padding-top: 80px;
-    background-image: url(../img/background.jpg);
+    background-image: url(../img/clinica-felinos.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -124,216 +128,125 @@ body {
 
 /* Fim do header */
 
-/* Corpo da página*/
+/* Corpo da página */
 
-#prevencoes-castracao {
-    padding: 20px;
+p {
+    font-family: 'Montserrat';
 }
 
-#título-prevencoes-castracao {
-    color: #333333;
-    font-family: 'Montserrat';
-    font-size: 55px;
-    font-weight: bold;
-    margin-top: 2%;
-    margin-left: 27%;
+#submeter-clinica {
+    margin-top: 4%;
+    text-align: center;
     animation: título-aparece 1s;
 }
 
-#texto-prevencoes {
-    color: #333;
-    animation: texto-aparece 2s;
-}
-
-/* background das divs*/
-
-.topics {
+#título-submeter-clinica {
     font-family: 'Montserrat';
-    font-size: 18px;
-    margin-top: 5%;
-    margin-left: 180px;
-    margin-right: 180px;
-    margin-bottom: 5%;
-    background-color: #f7e0ec;
-    border-radius: 50px 50px 50px 50px;
-    box-shadow: rgba(0, 0, 0, 0.35) 2px 5px 10px;
-}
-
-/* Texto introdutório Prevenções e Castração */
-
-.prevencoes {
-    padding-top: 20px;
-    padding-right: 200px;
-    padding-left: 200px;
-}
-
-.prevencoes .título {
-    margin-left: 80px;
     font-size: 40px;
+    font-weight: bold;
+    color: #333;
 }
 
-.prevencoes .topic-content {
+.submeter-clinica-texto {
+    margin-top: 150px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 40px;
+}
+
+.submeter-clinica-texto .titulo {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+
+}
+
+.texto-introdutorio {
     font-size: 20px;
 }
 
-/* topic-content */
+/* Clínicas */
 
-.topic-content {
-    text-align: justify;
-    padding-right: 100px;
-    padding-left: 100px;
-    padding-bottom: 50px;
+#submited-clinics {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-
-.título {
-    font-family: 'Montserrat';
-    font-size: 25px;
-    font-weight: bold;
-    margin-left: 5.75%;
-    margin-top: 5px;
+.clinic {
     padding: 20px;
     display: inline-block;
 }
 
-
-.div-button {
-    margin-top: 30px;
-    margin-right: 25px;
-    float: right;
+.clinic img {
+    border-radius: 20px 20px 20px 20px;
 }
 
-.button {
+.clinic-name {
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.clinic-name .city {
+    padding-top: 1px;
+}
+
+#botão {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addclinicbutton {
     border: none;
-    background: none;
-    font-size: 30px;
+    background-color: rgb(236, 56, 56);
+    border-radius: 50px 50px 50px 50px;
+    transition: 0.2s ease-in-out;
 }
 
-.button:hover {
+.addclinicbutton:hover {
     cursor: pointer;
+    background-color: rgb(255, 86, 86);
+    transition: 0.2s ease-in-out;
 }
 
-.button:focus {
+.addclinicbutton:focus {
     outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
 }
 
-/* link para as clínicas */
-
-.div-castracao {
-    padding-top: 20px;
-    padding-right: 200px;
-    padding-left: 200px;
-}
-
-.div-castracao .título {
-    margin-left: 80px;
-    font-size: 40px;
-}
-
-.div-castracao .topic-content {
-    font-size: 20px;
-}
-
-.clinicas-background {
-    background-color: rgb(232, 56, 56);
-    border-radius: 50px 50px 50px 50px;
-    width: 240px;
-    transition: 0.2s ease-in-out;
-}
-
-.clinicas-background:hover {
-    background-color: rgb(245, 80, 80);
-    transition: 0.2s ease-in-out;
-}
-
-.clinicas-link {
-    text-decoration: none;
-}
-
-.clinicas-link:hover {
-    text-decoration: none;
-}
-
-.clinicas-link p {
-    padding: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 15px;
-    font-family: 'Montserrat';
+.addclinicbutton p {
     color: white;
-}
-
-
-/* Footer (faz parte do corpo da página, mas só para deixar separado semanticamente) */
-
-#footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.footer-component {
-    padding: 40px;
-    display: inline-block;
-}
-
-.icons .bloco-de-texto-título {
-    padding-bottom: 10px;
-}
-
-/* Tamanho, cor e animação dos ícones */
-
-.fa-brands {
-    width: 40px;
-    font-size: 30px;
-    color: #111;
-    transition: 0.2s ease-in-out;
-}
-
-.fa-brands:hover {
-    color: #666;
-    transition: 0.2s ease-in-out;
-}
-
-.bloco-de-texto {
-    font-family: 'Montserrat';
-    line-height: 20px;
-    color: #333;
-    text-align: left;
-}
-
-.bloco-de-texto-título {
-    display: flex;
+    text-align: center; 
     text-transform: uppercase;
-    margin-top: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.bloco-de-texto .telefones {
-    text-decoration: none;
+.container {
+    padding-bottom: 30px;
 }
 
-/* Animacações */
+.card {
+    padding: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+/* Animações */
 
 @keyframes título-aparece {
     0% {
-        margin-left: -10%;
-    }
-
-
-    100% {
-        margin-left: 27%;
-    }
-}
-
-@keyframes texto-aparece {
-    0% {
-        opacity: 0%;
+        margin-left: -50rem;
     }
 
     100% {
-        opacity: 100%;
+        text-align: center
     }
 }
 
@@ -344,15 +257,5 @@ body {
 
     100% {
         margin-top: -0.5rem;
-    }
-}
-
-
-
-/* Configurações de tamanhos de tela */
-
-@media screen and (min-width: 1600px) {
-    #texto-cuidados {
-        font-size: 25px;
     }
 }

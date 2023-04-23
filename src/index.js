@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
-import { clinicas } from './data/clinics.js';
+import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
+import { submited_clinics } from './data/submited_clinics.js'
 
 class HTTPError extends Error {
     constructor(message, code) {
@@ -20,7 +21,25 @@ server.use(express.static('public'));
 // Mostra o arquivo json contendo as clínicas de joão pessoa 
 
 server.get('/clinicas-joao-pessoa', (req, res) => {
-    res.json(clinicas);
+    res.json(clinics);
+});
+
+// Mostra o arquivo json contendo as clínicas submetidas por usuários
+
+server.get('/clinicas-submetidas', (req, res) => {
+    res.json(submited_clinics);
+});
+
+server.post('/clinicas-submetidas', (req, res) => {
+    const submited_clinic = req.body;
+  
+    if (submited_clinic) {
+      submited_clinics.push({ ...submited_clinic });
+  
+      res.json(submited_clinic);
+    } else {
+      throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
+    }
 });
 
 // Erro 404

@@ -1,0 +1,15 @@
+@host = http://localhost:3000
+
+GET {{host}}/clinicas-submetidas
+
+## hey
+
+POST {{host}}/clinicas-submetidas
+Content-Type: application/json
+
+{
+    "name": "Clinica Maneira",
+    "img-url": "imagem maneirinha",
+    "city": "João Pessoa"
+}
+

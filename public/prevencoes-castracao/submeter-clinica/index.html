@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submeter Clínica</title>
+    <!--Referenciar css-->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Fonte-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800"
+        rel="stylesheet">
+    <!--Importante para pegar os ícones das redes sociais-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <!--Partezinha de cima, para ir para outras páginas-->
+            <div id="componentes-do-header">
+
+                <div id="logo">
+                    <a href="../../index.html">
+                        <img id="CatNews" src="img/CatNews-logo.png" />
+                    </a>
+                </div>
+
+
+                <div class="outras-paginas hvr-underline-from-center">
+                    <a class="links" href="../../cuidados/index.html">
+                        <p class="texto-header">CUIDADOS GERAIS</p>
+                    </a>
+                </div>
+
+
+                <div class="outras-paginas hvr-underline-from-center">
+                    <a class="links" href="../index.html">
+                        <p class="texto-header">PREVENÇÕES E CASTRAÇÃO</p>
+                    </a>
+                </div>
+
+
+                <div class="outras-paginas hvr-underline-from-center">
+                    <a class="links" href="../../curiosidades/index.html">
+                        <p class="texto-header">CURIOSIDADES</p>
+                    </a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <div id="fundo">
+
+            <section id="submeter-clinica">
+                <p id="título-submeter-clinica">
+                    Submeter Clínica
+                </p>
+            </section>
+
+            <div class="submeter-clinica-texto">
+
+                <div class="titulo">
+                    <p>submeter clinica</p>
+                </div>
+
+                <div class="texto-introdutorio">
+                    <p>Olá, aqui você poderá submeter alguma clínica que você se lembrar e que não está na nossa página
+                        de clínicas veterinárias!</p>
+
+                    <p>Analisaremos as clínicas submetidas aqui e as adicionaremos na nossa página!</p>
+
+                    <p>Você pode submeter alguma clínica logo abaixo:</p>
+                </div>
+
+            </div>
+
+            <div id="botão">
+                <button class="addclinicbutton" type="button" data-toggle="collapse" data-target="#formulario"
+                    aria-expanded="false" aria-controls="formulario">
+                    <p>Adicionar clinica</p>
+                </button>
+            </div>
+
+            <div class="collapse" id="formulario">
+                <div class="container">
+                    <div class="card">
+                        <form>
+                            <div class="mb3">
+                                <label for="name" class="form-label">Nome da clínica</label>
+                                <input type="name" class="form-control" id="name" placeholder="Ex: Clínica Pet Feliz">
+                            </div>
+
+                            <div class="mb3">
+                                <label for="name" class="form-label">Imagem da clínica</label>
+                                <input type="name" class="form-control" id="img"
+                                    placeholder="Ex: https://imagens.com/imagem.jpg">
+                            </div>
+
+                            <div class="mb3">
+                                <label for="cidade" class="form-label">Cidade</label>
+                                <select class="form-select" id="cidade required">
+                                    <option selected disabled value="">Selecione</option>
+                                    <option>João Pessoa</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+
+                            <div class="mb3">
+                                <input type="submit" class="form-control btn btn-secondary" id="submit">   
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="submited-clinics">
+               
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>

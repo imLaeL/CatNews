@@ -1,3 +1,5 @@
+import { clinics } from "../data/clinics.js";
+
 function getClinics(clinic) {
 
     return `<div class=clinicas-joao-pessoa">
@@ -22,15 +24,12 @@ function getClinicsDescription(clinic_description) {
             </div>`;
 }
 
-const response = await fetch('./data/clinicas.json');
-const data = await response.json();
 
 let clinics_list = '';
 
-for (const clinic of data.clinics) {
+for (const clinic of clinics) {
     clinics_list += getClinics(clinic);
 }
-
 
 clinics_list;
 

@@ -1,116 +1,132 @@
 /* Clínicas Veterinárias */
 
 body {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 /* Fundo da página */
 
 #fundo {
-
-    /* Dentro de url coloque o caminho para a imagem de fundo, img/<nome-da-imagem> */
-
+    padding-top: 80px;
     background-image: url(../img/veterinario.jpg);
-    background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: 0px 0px;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    height: 300px;
 }
 
 /* Componentes do header */
 
+/* logo e Cat News são para a div logo e para a figura em si */
+/* posição e relacionados, se modifica em #logo, e para tamanho da imagem em #CatNews */
+
 #componentes-do-header {
-    margin-top: 0.5%;
+    background-color: white;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
     animation: header-aparece 1s;
 }
 
 #logo {
     display: inline-block;
-    padding-right: 15% !important;
-    margin-left: 5%;
-}
-
-.outras-paginas {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-right: 2.5%;
-    display: inline-block;
-
+    padding-right: 25% !important;
+    padding-left: 5%;
 }
 
 #CatNews {
     width: 100%;
-    left: 10%;
-    top: 3px;
+    min-width: 100%;
 }
 
+/* Texto: Cuidados gerais, prevenções e castração, Curiosidades */
+
+.outras-paginas {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-right: 4%;
+    display: inline-block;
+}
+
+.outras-paginas:hover .texto-header {
+    color: #2098D1;
+    transition: 0.2s ease-in-out;
+}
+
+.texto-header {
+    color: #000000;
+    transition: 0.2s ease-in-out;
+}
+
+
+/* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
+
 .links {
-    font-size: 25px;
+    font-size: 15px;
     color: #000000;
     text-decoration: none;
 }
 
+.links:hover {
+    text-decoration: none;
+}
+
 /* Animação de cada texto naquele header */
+/* linhazinha para o centro azul */
 
-.texto-header {
-    --b: 0.1em;
-    --c: #ffffff;
-
-    color: #0000;
-    padding-block: var(--b);
-    background: linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100% 200%,
-        linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b) no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
-    transition: 0.3s var(--_s, 0s) linear,
-        background-size 0.3s calc(0.3s - var(--_s, 0s));
-}
-
-.texto-header:hover {
-    --_p: 100%;
-    --_s: 0.3s;
-}
-
-/* Links para redes sociais*/
-
-.icons {
+.hvr-underline-from-center {
     display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
 }
 
-.fa-brands {
-    width: 40px;
-    font-size: 30px;
-    color: #000000;
-    transition: 0.2s ease-in-out;
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 
-.fa-brands:hover {
-    width: 35px;
-    font-size: 40px;
-    color: #ffffff;
-    transition: 0.2s ease-in-out;
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
 }
 
 /* Fim do header */
 
-/* Corpo da página*/
-
-#caixa-de-conteudo {
-    background-image: linear-gradient(to bottom, rgb(246, 246, 246), white);
-    height: 90%;
-    margin-top: 350px;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 50px;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    animation: caixa-de-conteudo-aparece 1s;
-}
+/* Corpo da página */
 
 #título {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20rem;
+    color: #333;
+    font-family: 'Montserrat';
+    font-weight: bold;
     font-size: 40px;
     text-align: center;
     padding: 40px;
+    animation: título-aparece 1s;
 }
 
 .clinicas-joao-pessoa {
@@ -245,7 +261,50 @@ body {
     background-repeat: no-repeat;
 }
 
+/* adicionar clínica */
  
+.adicionar-clinica {
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 40px;
+}
+
+.adicionar-clinica-texto p {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.button-adicionar {
+    background-color: rgb(232, 56, 56);
+    border-radius: 50px 50px 50px 50px;
+    margin-right: 40%;
+    margin-left: 40%;
+    transition: 0.2s ease-in-out;
+}
+
+.button-adicionar:hover {
+    background-color: rgb(231, 83, 83);
+    transition: 0.2s ease-in-out;
+}
+
+.link-adicionar,
+.link-adicionar:hover {
+    text-decoration: none;
+}
+
+.link-adicionar p {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /*
 @media screen and (min-width: 1400px) {
     .clinicas-joao-pessoa {
@@ -286,7 +345,17 @@ body {
     }
 
     100% {
-        margin-top: 0.5%;
+        margin-top: -0.5rem;
+    }
+}
+
+@keyframes título-aparece {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
     }
 }
 

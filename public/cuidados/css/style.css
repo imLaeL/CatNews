@@ -159,12 +159,26 @@ body {
   font-family: 'Montserrat';
   font-size: 18px;
   margin-top: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 5%;
   background-color: #f7e0ec;
   border-radius: 50px 50px 50px 50px;
   box-shadow: rgba(0, 0, 0, 0.35) 2px 5px 10px;
+}
+
+.gatos-filhotes {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.gatos-filhotes .título {
+  margin-left: 80px;
+  padding-top: 40px;
+}
+
+.gatos-filhotes .topic-content {
+  font-size: 20px;
 }
 
 
@@ -202,10 +216,6 @@ body {
   margin-top: 5px;
   padding: 20px;
   display: inline-block;
-}
-
-.gatos-filhotes > .título {
-  padding-top: 40px;
 }
 
 .div-button { 
