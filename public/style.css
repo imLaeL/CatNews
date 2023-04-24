@@ -222,8 +222,7 @@ body {
 }
 
 .adote-gatinho:hover {
-  width: 180px;
-  height: 180px;
+  transform: scale(1.1);
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
@@ -245,9 +244,7 @@ body {
 }
 
 .ajude-anjo-de-rua:hover {
-  
-  width: 180px;
-  height: 180px;
+  transform: scale(1.1);
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
@@ -268,10 +265,8 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.cuide-alimente:hover {  
-  width: 180px;
-  height: 180px;
-
+.cuide-alimente:hover {
+  transform: scale(1.1);
   transition: 0.2s ease-in-out;
   box-shadow: rgb(80, 80, 80) 0px 5px 15px;
 }
