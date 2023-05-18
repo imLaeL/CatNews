@@ -1,7 +1,6 @@
 import express from "express";
 import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
-import { submited_clinics } from './data/submited_clinics.js';
-
+import SubmitedClinics from "./model/submited_clinics.js";
 
 class HTTPError extends Error {
     constructor(message, code) {
@@ -16,19 +15,22 @@ router.get('/clinicas-joao-pessoa', (req, res) => {
     res.json(clinics);
 });
 
-// Mostra o arquivo json contendo as clínicas submetidas por usuários
+// Mostra as clínicas submetidas por usuários no formato JSON
 
-router.get('/clinicas-submetidas', (req, res) => {
+router.get('/clinicas-submetidas', async (req, res) => {
+    const submited_clinics = await SubmitedClinics.readAll();
+    
     res.json(submited_clinics);
 });
 
-router.post('/clinicas-submetidas', (req, res) => {
+// Adiciona novas clínicas
+router.post('/clinicas-submetidas', async (req, res) => {
     const submited_clinic = req.body;
+
+    const newclinic = await SubmitedClinics.create(submited_clinic);
   
-    if (submited_clinic) {
-      submited_clinics.push({ ...submited_clinic });
-  
-      res.json(submited_clinic);
+    if (newclinic) {
+      res.json(newclinic);
     } else {
       throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
     }
