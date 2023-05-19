@@ -32,15 +32,17 @@ function addClinics(clinic) {
     lixeiraIcon.onclick = async () =>  {
         const id = parseInt(clinic.id);
         try { 
-            const response = fetch(`/clinicas-submetidas/${id}`, {
+           fetch(`/clinicas-submetidas/${id}`, {
                 method: 'delete',
+            }).then((response) => {
+                if (response.ok) {
+                    submited_clinic_div.remove();
+                } else {
+                    throw new Error('Falha ao excluir clínica');
+                }
+            }).catch((error) => {
+                console.error(error);
             });
-
-            if (response.status === 204) {
-                submited_clinic_div.remove()
-            } else {
-                console.error('Houve um problema ao deletar a clínica', response.statusText);
-            }
 
         } catch (error) {
             console.error('Erro ao deletar a clínica', error);

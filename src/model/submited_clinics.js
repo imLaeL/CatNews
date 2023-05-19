@@ -79,7 +79,7 @@ async function update(submitedClinic, id) {
 
 async function remove(id) {
     try {
-        const deletedCount = await SubmitedClinic.destroy({
+        const deletedCount = await SubmitedClinics.destroy({
             where: { id },
         });
 
