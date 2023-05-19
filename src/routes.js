@@ -36,6 +36,40 @@ router.post('/clinicas-submetidas', async (req, res) => {
     }
 });
 
+// Atualiza clínicas
+
+router.put('/clinicas-submetidas/:id', async (req, res) => {
+    const id = Number(req.params.id);
+
+    const submited_clinic = req.body;
+
+    if (id && submited_clinic) {
+        const newclinic = await SubmitedClinics.update(submited_clinic, id);
+
+        res.json(newclinic);
+    } else {
+        throw new HTTPError('Dados inválidos para atualizar clínica submetida', 400);
+    }
+});
+
+// Deleta dados
+
+router.delete('/clinicas-submetidas/:id', async (req, res) => {
+    const id = Number(req.params.id);
+
+    try {
+        if (id && (await SubmitedClinics.remove(id))) {
+            res.sendStatus(204);
+        } else {
+            throw new HTTPError('O id é necessário para remover a clínica submetida', 400);
+        }
+    
+    } catch (error) {
+        console.log('Ocorreu um erro ao deletar a clínica:', error);
+    }
+
+});
+
 // Erro 404
 
 router.use((req, res, next) => {
