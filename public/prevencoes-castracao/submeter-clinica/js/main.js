@@ -82,13 +82,11 @@ function loadFormSubmit() {
 
         const imageurl = document.querySelector('#img').value;
 
-        const city = document.querySelector('#city').value;
-
         const horario_aberto= document.querySelector('#horario_aberto').value;
 
         const horario_fechado = document.querySelector('#horario_fechado').value;
 
-        const clinic = { name, imageurl, city, horario_aberto, horario_fechado };
+        const clinic = { name, imageurl, horario_aberto, horario_fechado };
 
         try {
 

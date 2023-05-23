@@ -18,10 +18,6 @@ SubmitedClinics.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    city: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     horario_aberto: {
         type: DataTypes.STRING,
         allowNull: false
