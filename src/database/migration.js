@@ -23,6 +23,14 @@ export default async function migrate() {
       type: DataTypes.STRING,
       allowNull: false
     },
+    horario_aberto: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    horario_fechado: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false

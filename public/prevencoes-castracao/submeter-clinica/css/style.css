@@ -218,6 +218,11 @@ p {
     padding-top: 1px;
 }
 
+.horario {
+    font-size: 25px;
+    padding-top: 1px;
+}
+
 #botão {
     padding: 20px;
     display: flex;

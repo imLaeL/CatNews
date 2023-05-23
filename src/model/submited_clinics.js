@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import database from '../database/database.js';
 
-class SubmitedClinics extends Model {}
+class SubmitedClinics extends Model { }
 
 SubmitedClinics.init({
     id: {
@@ -14,15 +14,31 @@ SubmitedClinics.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    imageurl: { 
+    imageurl: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    city : { 
+    city: {
         type: DataTypes.STRING,
         allowNull: false
-    }}, 
-
+    },
+    horario_aberto: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    horario_fechado: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false
+    }
+},
     {
         sequelize: database,
         modelName: 'submited_clinics'
@@ -31,14 +47,14 @@ SubmitedClinics.init({
 
 async function create(submitedClinic) {
     try {
-      const createdSubmitedClinic = await SubmitedClinics.create(submitedClinic);
-      return read(createdSubmitedClinic.id);
+        const createdSubmitedClinic = await SubmitedClinics.create(submitedClinic);
+        return read(createdSubmitedClinic.id);
     } catch (error) {
-      console.error('Error creating submited clinic:', error);
-      throw error;
+        console.error('Error creating submited clinic:', error);
+        throw error;
     }
-  }
-  
+}
+
 async function read(id) {
     try {
         const submitedClinic = await SubmitedClinics.findByPk(id);
@@ -51,11 +67,11 @@ async function read(id) {
 
 async function readAll() {
     try {
-      const submitedClinics = await SubmitedClinics.findAll();
-      return submitedClinics;
+        const submitedClinics = await SubmitedClinics.findAll();
+        return submitedClinics;
     } catch (error) {
-      console.error('Não foi possível achar as clínicas ;(', error);
-      throw error;
+        console.error('Não foi possível achar as clínicas ;(', error);
+        throw error;
     }
 }
 

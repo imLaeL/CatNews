@@ -4,7 +4,7 @@ function getClinics(clinic) {
             <img src="${clinic.imageurl}" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
             <p class="clinic-name city">${clinic.city}</p>
-            
+            <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>            
             <div class="icon-trash" id="lixeira" style="justify-content: center; flex-wrap: wrap; display: flex; cursor: pointer;">
                 <span
                     class="iconify"
@@ -84,7 +84,11 @@ function loadFormSubmit() {
 
         const city = document.querySelector('#city').value;
 
-        const clinic = { name, imageurl, city };
+        const horario_aberto= document.querySelector('#horario_aberto').value;
+
+        const horario_fechado = document.querySelector('#horario_fechado').value;
+
+        const clinic = { name, imageurl, city, horario_aberto, horario_fechado };
 
         try {
 
@@ -106,7 +110,7 @@ function loadFormSubmit() {
             }
         
         } catch (error) {
-            console.error('Erro ao adicionar clínica:', error);
+            console.error('Erro ao adicionar clínica:', error.message);
         }
   
       
