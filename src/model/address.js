@@ -24,6 +24,14 @@ Address.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        SubmitedClinicID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'submited_clinics',
+              key: 'id',
+                },
+        },
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,

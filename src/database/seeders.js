@@ -5,18 +5,25 @@ import { submited_clinics, clinic_address } from './data.js';
 async function seed () {
   try {
     const clinics = submited_clinics;
-
-    for (const clinic of clinics) {
-      await SubmitedClinics.create(clinic);
+    try {
+     for (const clinic of clinics) {
+        await SubmitedClinics.create(clinic);
+      }
+    } catch (error) {
+      console.error('\nErro ao criar as clínicas submetidas:\n', error)
     }
 
-    for (const address of clinic_address) {
-      await Address.create(address);
+    try {
+      for (const address of clinic_address) {
+        await Address.create(address);
+      }
+    } catch (error) {
+      console.error('\nErro ao criar os endereços:\n', error)
     }
 
-    console.log('Sementes inseridas com sucesso,')
+    console.log('\nSementes inseridas com sucesso,')
   } catch (error) {
-    console.error('Erro ao inserir as sementes:', error)
+    console.error('\nErro ao inserir as sementes')
   }
 };
 
