@@ -36,6 +36,55 @@ export default async function migrate() {
       allowNull: false
     }
   });
+
+  await database.queryInterface.createTable('clinic_addresses', {
+    CEP: {
+      type: DataTypes.INTEGER,
+      autoIncrement: false,
+      allowNull: false,
+      primaryKey: true,
+    },
+    rua: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    numero: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    cidade: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    SubmitedClinicID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'submited_clinics',
+        key: 'id',
+      },
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+  });
+
+  await database.queryInterface.addConstraint('clinic_addresses', {
+    fields: ['SubmitedClinicID'],
+    type: 'foreign key',
+    name: 'SubmitedClinicsID',
+    references: {
+      table: 'submited_clinics',
+      field: 'id',
+    },
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  });
 }
 
 migrate();

@@ -39,7 +39,18 @@ SubmitedClinics.init({
         sequelize: database,
         modelName: 'submited_clinics'
     }
-)
+);
+
+async function init() {
+    const Address = (await import('./address.js')).default;
+
+    // Um clínica pode ter vários endereços
+    SubmitedClinics.hasMany(Address, {
+        foreignKey: 'SubmitedClinicId',
+    });
+}
+
+init();
 
 async function create(submitedClinic) {
     try {
