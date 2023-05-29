@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import database from '../database/database.js';
+import Address from './address.js';
 
 class SubmitedClinics extends Model { }
 
@@ -41,16 +42,16 @@ SubmitedClinics.init({
     }
 );
 
-async function init() {
-    const Address = (await import('./address.js')).default;
+// Um clínica pode ter vários endereços
+SubmitedClinics.hasMany(Address, {
+    foreignKey: 'SubmitedClinicId',
+});
 
-    // Um clínica pode ter vários endereços
-    SubmitedClinics.hasMany(Address, {
-        foreignKey: 'SubmitedClinicId',
-    });
-}
-
-init();
+// Um endereço pertence a somente uma clínica
+Address.belongsTo(SubmitedClinics, {
+    constraint: true,
+    foreignKey: 'SubmitedClinicID',
+});
 
 async function create(submitedClinic) {
     try {

@@ -47,18 +47,6 @@ Address.init(
     }
 );
 
-async function init() {
-    const SubmitedClinics = (await import('./submited_clinics.js')).default;
-  
-    // Um endereço pertence a somente uma clínica
-    Address.belongsTo(SubmitedClinics, {
-      constraint: true,
-      foreignKey: 'SubmitedClinicId',
-    });
-}
-
-init();
-
 
 async function create(address) {
     try {
