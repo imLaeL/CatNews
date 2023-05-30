@@ -1,6 +1,7 @@
-import express from "express";
+import { Router }from "express";
 import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
 import SubmitedClinics from "./model/submited_clinics.js";
+import Address from "./model/address.js";
 
 class HTTPError extends Error {
     constructor(message, code) {
@@ -9,7 +10,7 @@ class HTTPError extends Error {
     }
 }
 
-const router = express.Router();
+const router = Router();
 
 router.get('/clinicas-joao-pessoa', (req, res) => {
     res.json(clinics);
@@ -21,6 +22,14 @@ router.get('/clinicas-submetidas', async (req, res) => {
     const submited_clinics = await SubmitedClinics.readAll();
     
     res.json(submited_clinics);
+});
+
+// Mostra todos os endereços submetidos
+
+router.get('/enderecos', async (req, res) => {
+    const clinic_addresses = await Address.readAll();
+
+    res.json(clinic_addresses);
 });
 
 // Adiciona novas clínicas

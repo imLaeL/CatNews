@@ -28,7 +28,7 @@ Address.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-              model: 'submited_clinics',
+              model: 'SubmitedClinics',
               key: 'id',
                 },
         },
@@ -101,4 +101,4 @@ async function remove(CEP) {
     }
 }
 
-export {Address as default, create, read, readAll, update, remove };
+export { Address as default, create, read, readAll, update, remove };
