@@ -44,7 +44,7 @@ SubmitedClinics.init({
 
 // Um clínica pode ter vários endereços
 SubmitedClinics.hasMany(Address, {
-    foreignKey: 'SubmitedClinicId',
+    foreignKey: 'SubmitedClinicID',
 });
 
 // Um endereço pertence a somente uma clínica
