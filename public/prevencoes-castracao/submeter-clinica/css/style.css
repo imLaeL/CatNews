@@ -207,19 +207,17 @@ p {
 }
 
 .clinic-name {
-    text-align: center;
+    text-align: justify;
     text-transform: uppercase;
-    padding-top: 20px;
-    font-size: 25px;
+    padding-top: 1rem;
+    font-size: 20px;
 }
 
-.city {
-    font-size: 20px;
+.cidade {
     padding-top: 1px;
 }
 
 .horario {
-    font-size: 25px;
     padding-top: 1px;
 }
 

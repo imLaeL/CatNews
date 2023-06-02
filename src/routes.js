@@ -1,4 +1,4 @@
-import { Router }from "express";
+import { Router } from "express";
 import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
 import SubmitedClinics from "./model/submited_clinics.js";
 import Address from "./model/address.js";
@@ -27,16 +27,19 @@ router.get('/clinicas-submetidas', async (req, res) => {
 
 // Adiciona novas clínicas
 router.post('/clinicas-submetidas', async (req, res) => {
-    const submited_clinic = req.body;
+    const { clinic, address } = req.body;
 
-    const newclinic = await SubmitedClinics.create(submited_clinic);
+    const newClinic = await SubmitedClinics.create_clinic(clinic);
+    
+    const newAddress = await Address.create_address(address);
   
-    if (newclinic) {
-      res.json(newclinic);
+    if (newClinic && newAddress) {
+      res.json({ clinic: newClinic, address: newAddress });
     } else {
       throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
     }
 });
+
 
 // Atualiza clínicas
 

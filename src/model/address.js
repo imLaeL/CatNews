@@ -5,8 +5,8 @@ import SubmitedClinics from './submited_clinics.js';
 class Address extends Model {
     static async create_address(address) {
         try {
-            const createdAddress = await Address.create(address);
-            return Address.read(createdAddress.CEP);
+            await Address.create(address);
+            return Address.read(Address.CEP);
         } catch (error) {
             console.error('Não foi possível criar o endereço:', error);
             throw error;
@@ -79,6 +79,7 @@ Address.init(
         },
         SubmitedClinicID: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             references: {
               model: 'SubmitedClinics',
@@ -99,5 +100,7 @@ Address.init(
         modelName: 'clinic_addresses',
     }
 );
+
+
 
 export default Address;

@@ -1,10 +1,13 @@
-function getClinics(clinic) {
+function getClinics(clinic, address) {
     return `
         <div class="clinic" id="clinic-${clinic.id}">
             <img src="${clinic.imageurl}" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
-            <p class="clinic-name city">${clinic.city}</p>
-            <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>            
+            <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>
+            <p class="clinic-name CEP">CEP: ${address.CEP}</p>
+            <p class="clinic-name rua">Rua: ${address.rua}</p>
+            <p class="clinic-name numero">Número: ${address.numero}</p>
+            <p class="clinic-name cidade">Cidade: ${address.cidade}</p>            
             <div class="icon-trash" id="lixeira" style="justify-content: center; flex-wrap: wrap; display: flex; cursor: pointer;">
                 <span
                     class="iconify"
@@ -18,10 +21,10 @@ function getClinics(clinic) {
     `;
 }
 
-function addClinics(clinic) {
+function addClinics(clinic, address) {
     const submitedClinics = document.querySelector('#submited-clinics');
 
-    const clinicsView = getClinics(clinic);
+    const clinicsView = getClinics(clinic, address);
 
     submitedClinics.insertAdjacentHTML('beforeend', clinicsView);
     
@@ -52,13 +55,17 @@ function addClinics(clinic) {
 
 async function loadClinics() {
     try {
-        const response = await fetch('/clinicas-submetidas');
+        const response_clinics = await fetch('/clinicas-submetidas');
+        const response_address = await fetch('/enderecos');
         
-        if (response.ok) {
-            const clinics = await response.json();
-        
-            for (const clinic of clinics) {
-                addClinics(clinic);
+        if (response_clinics.ok && response_address.ok) {
+            const clinics = await response_clinics.json();
+            const addresses = await response_address.json();
+
+            for (let i = 0; i < clinics.length; i ++) {
+                const clinic = clinics[i];
+                const address = addresses[i];
+                addClinics(clinic, address);
             }
         
         } else {
@@ -86,21 +93,33 @@ function loadFormSubmit() {
 
         const horario_fechado = document.querySelector('#horario_fechado').value;
 
+        const CEP = Number(document.querySelector('#CEP').value);
+
+        const rua = document.querySelector('#rua').value;
+
+        const numero = Number(document.querySelector('#numero').value);
+
+        const cidade = document.querySelector('#cidade').value;
+
         const clinic = { name, imageurl, horario_aberto, horario_fechado };
+
+        const address = { CEP, rua, numero, cidade };
+
+        const data = { clinic, address }
 
         try {
 
             const response = await fetch('/clinicas-submetidas', {
                 method: 'post',
-                body: JSON.stringify(clinic),
+                body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
 
             if (response.ok) {
-                const newClinic = await response.json();
-                addClinics(newClinic);
+                const { clinic: newClinic, address: newAddress } = await response.json();
+                addClinics(newClinic, newAddress);
                 form.reset();
                 document.querySelector('.addclinicbutton').click();
             } else {
@@ -114,8 +133,6 @@ function loadFormSubmit() {
       
     };
 }
-
-
 
 loadClinics();
 
