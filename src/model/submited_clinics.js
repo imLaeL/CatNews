@@ -2,7 +2,68 @@ import { DataTypes, Model } from 'sequelize';
 import database from '../database/database.js';
 import Address from './address.js';
 
-class SubmitedClinics extends Model { }
+class SubmitedClinics extends Model { 
+    static async create_clinic(submitedClinic) {
+        try {
+            const createdSubmitedClinic = await SubmitedClinics.create(submitedClinic);
+            return SubmitedClinics.read(createdSubmitedClinic.id);
+        } catch (error) {
+            console.error('Error creating submited clinic:', error);
+            throw error;
+        }
+    }
+    
+    static async read(id) {
+        try {
+            const submitedClinic = await SubmitedClinics.findByPk(id);
+            return submitedClinic;
+        } catch (error) {
+            console.error('Error retrieving submited clinic:', error);
+            throw error;
+        }
+    }
+    
+    static async readAll() {
+        try {
+            const submitedClinics = await SubmitedClinics.findAll();
+            return submitedClinics;
+        } catch (error) {
+            console.error('Não foi possível achar as clínicas ;(', error);
+            throw error;
+        }
+    }
+    
+    static async update(submitedClinic, id) {
+        try {
+            const [, updatedSubmitedClinics] = await SubmitedClinic.update(submitedClinic, {
+                where: { id },
+                returning: true,
+            });
+    
+            if (updatedSubmitedClinics.length === 1) {
+                return read(id);
+            } else {
+                return false;
+            }
+        } catch (error) {
+            console.error('Error updating submited clinic:', error);
+            throw error;
+        }
+    }
+    
+    static async remove(id) {
+        try {
+            const deletedCount = await SubmitedClinics.destroy({
+                where: { id },
+            });
+    
+            return deletedCount === 1;
+        } catch (error) {
+            console.error('Error deleting submited clinic:', error);
+            throw error;
+        }
+    }
+}
 
 SubmitedClinics.init({
     id: {
@@ -53,65 +114,4 @@ Address.belongsTo(SubmitedClinics, {
     foreignKey: 'SubmitedClinicID',
 });
 
-async function create(submitedClinic) {
-    try {
-        const createdSubmitedClinic = await SubmitedClinics.create(submitedClinic);
-        return read(createdSubmitedClinic.id);
-    } catch (error) {
-        console.error('Error creating submited clinic:', error);
-        throw error;
-    }
-}
-
-async function read(id) {
-    try {
-        const submitedClinic = await SubmitedClinics.findByPk(id);
-        return submitedClinic;
-    } catch (error) {
-        console.error('Error retrieving submited clinic:', error);
-        throw error;
-    }
-}
-
-async function readAll() {
-    try {
-        const submitedClinics = await SubmitedClinics.findAll();
-        return submitedClinics;
-    } catch (error) {
-        console.error('Não foi possível achar as clínicas ;(', error);
-        throw error;
-    }
-}
-
-async function update(submitedClinic, id) {
-    try {
-        const [, updatedSubmitedClinics] = await SubmitedClinic.update(submitedClinic, {
-            where: { id },
-            returning: true,
-        });
-
-        if (updatedSubmitedClinics.length === 1) {
-            return read(id);
-        } else {
-            return false;
-        }
-    } catch (error) {
-        console.error('Error updating submited clinic:', error);
-        throw error;
-    }
-}
-
-async function remove(id) {
-    try {
-        const deletedCount = await SubmitedClinics.destroy({
-            where: { id },
-        });
-
-        return deletedCount === 1;
-    } catch (error) {
-        console.error('Error deleting submited clinic:', error);
-        throw error;
-    }
-}
-
-export default { SubmitedClinics, readAll, create, read, update, remove };
+export default SubmitedClinics;

@@ -24,13 +24,6 @@ router.get('/clinicas-submetidas', async (req, res) => {
     res.json(submited_clinics);
 });
 
-// Mostra todos os endereços submetidos
-
-router.get('/enderecos', async (req, res) => {
-    const clinic_addresses = await Address.readAll();
-
-    res.json(clinic_addresses);
-});
 
 // Adiciona novas clínicas
 router.post('/clinicas-submetidas', async (req, res) => {
@@ -77,6 +70,14 @@ router.delete('/clinicas-submetidas/:id', async (req, res) => {
         console.log('Ocorreu um erro ao deletar a clínica:', error);
     }
 
+});
+
+// Mostra todos os endereços submetidos
+
+router.get('/enderecos', async (req, res) => {
+    const clinic_addresses = await Address.readAll();
+
+    res.json(clinic_addresses);
 });
 
 // Erro 404
