@@ -79,7 +79,7 @@ Address.init(
         },
         SubmitedClinicID: {
             type: DataTypes.INTEGER,
-            autoIncrement: true,
+            autoIncrement: false,
             allowNull: false,
             references: {
               model: 'SubmitedClinics',
