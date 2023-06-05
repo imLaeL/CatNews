@@ -209,17 +209,11 @@ p {
 .clinic-name {
     text-align: justify;
     text-transform: uppercase;
-    padding-top: 1rem;
+    padding-top: 5px;
     font-size: 20px;
 }
 
-.cidade {
-    padding-top: 1px;
-}
 
-.horario {
-    padding-top: 1px;
-}
 
 #botão {
     padding: 20px;
