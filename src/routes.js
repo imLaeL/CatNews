@@ -31,7 +31,6 @@ router.post('/clinicas-submetidas', async (req, res) => {
   try {
       const newClinic = await SubmitedClinics.create_clinic(clinic);
       const id = newClinic.dataValues.id;
-    //   address['SubmitedClinicID'] = id;
       const addressClinic = { ...address, SubmitedClinicID: id };
       await Address.create_address(addressClinic);
       
