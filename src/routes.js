@@ -36,7 +36,7 @@ router.post('/clinicas-submetidas', async (req, res) => {
       await Address.create_address(addressClinic);
       
       if (newClinic) {
-        res.json({ clinic: newClinic, address: newAddress });
+        res.json({ clinic: newClinic, address: addressClinic });
       } else {
         throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
       }
