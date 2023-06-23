@@ -93,11 +93,11 @@ function loadFormSubmit() {
 
         const horario_fechado = document.querySelector('#horario_fechado').value;
 
-        const CEP = Number(document.querySelector('#CEP').value);
+        const CEP = document.querySelector('#CEP').value;
 
         const rua = document.querySelector('#rua').value;
 
-        const numero = Number(document.querySelector('#numero').value);
+        const numero = document.querySelector('#numero').value;
 
         const cidade = document.querySelector('#cidade').value;
 

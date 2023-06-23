@@ -5,10 +5,10 @@
   "description": "Para fazer download do repositório usando o git, basta cloná-lo da seguinte forma: git clone https://github.com/imLaeL/CatNews",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "db:reload": "npm run db:drop && npm run db:load",
-    "db:load": "node src/database/migration.js && node src/database/seeders.js",
-    "db:drop": "rm src/database/database.sqlite"
+    "dev": "nodemon src/index.js"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,13 @@
   },
   "homepage": "https://github.com/imLaeL/CatNews#readme",
   "dependencies": {
+    "@prisma/client": "^4.15.0",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "path": "^0.12.7",
+    "prisma": "^4.15.0",
     "sequelize": "^6.31.1",
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0"

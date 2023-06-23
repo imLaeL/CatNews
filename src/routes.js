@@ -29,10 +29,11 @@ router.post('/clinicas-submetidas', async (req, res) => {
   const { clinic, address } = req.body;
 
   try {
-      const newClinic = await SubmitedClinics.create_clinic(clinic);
-      const id = newClinic.dataValues.id;
-      const addressClinic = { ...address, SubmitedClinicID: id };
-      await Address.create_address(addressClinic);
+      const newClinic = await SubmitedClinics.create(clinic);
+      console.log('\n\n', newClinic, '\n\n');
+      const id = newClinic.id;
+      const addressClinic = { ...address, clinic_id: id };
+      await Address.create(addressClinic);
       
       if (newClinic) {
         res.json({ clinic: newClinic, address: addressClinic });

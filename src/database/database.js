@@ -1,7 +1,7 @@
-import Sequelize from 'sequelize';
-const database = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'src/database/database.sqlite'
-})
+import { PrismaClient } from '@prisma/client';
 
-export default database;
+const prisma = new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
+});
+
+export default prisma;

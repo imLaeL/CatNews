@@ -1,2 +1,4 @@
 #ignora a pasta node_modules(pacotes instalados do nodejs)
 node_modules
+#ignora o arquivo .env
+.env

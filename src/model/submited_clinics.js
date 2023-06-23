@@ -1,117 +1,55 @@
-import { DataTypes, Model } from 'sequelize';
-import database from '../database/database.js';
-import Address from './address.js';
+import prisma from '../database/database.js';
 
-class SubmitedClinics extends Model { 
-    static async create_clinic(submitedClinic) {
-        try {
-            const createdSubmitedClinic = await SubmitedClinics.create(submitedClinic);
-            return SubmitedClinics.read(createdSubmitedClinic.id);
-        } catch (error) {
-            console.error('Error creating submited clinic:', error);
-            throw error;
-        }
-    }
-    
-    static async read(id) {
-        try {
-            const submitedClinic = await SubmitedClinics.findByPk(id);
-            return submitedClinic;
-        } catch (error) {
-            console.error('Error retrieving submited clinic:', error);
-            throw error;
-        }
-    }
-    
-    static async readAll() {
-        try {
-            const submitedClinics = await SubmitedClinics.findAll();
-            return submitedClinics;
-        } catch (error) {
-            console.error('Não foi possível achar as clínicas ;(', error);
-            throw error;
-        }
-    }
-    
-    static async update(submitedClinic, id) {
-        try {
-            const [, updatedSubmitedClinics] = await SubmitedClinic.update(submitedClinic, {
-                where: { id },
-                returning: true,
-            });
-    
-            if (updatedSubmitedClinics.length === 1) {
-                return read(id);
-            } else {
-                return false;
-            }
-        } catch (error) {
-            console.error('Error updating submited clinic:', error);
-            throw error;
-        }
-    }
-    
-    static async remove(id) {
-        try {
-            const deletedCount = await SubmitedClinics.destroy({
-                where: { id },
-            });
-    
-            return deletedCount === 1;
-        } catch (error) {
-            console.error('Error deleting submited clinic:', error);
-            throw error;
-        }
-    }
+async function create(clinic) {
+    const newClinic = await prisma.clinic.create({
+        data: clinic
+    })
+
+    return newClinic;
 }
 
-SubmitedClinics.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    imageurl: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    horario_aberto: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    horario_fechado: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    createdAt: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: false
-    }
-},
-    {
-        sequelize: database,
-        modelName: 'submited_clinics'
-    }
-);
+async function readAll() {
+    const clinics = await prisma.clinic.findMany()
 
-// Um clínica pode ter vários endereços
-SubmitedClinics.hasMany(Address, {
-    foreignKey: 'SubmitedClinicID',
-});
+    return clinics;
 
-// Um endereço pertence a somente uma clínica
-Address.belongsTo(SubmitedClinics, {
-    constraint: true,
-    foreignKey: 'SubmitedClinicID',
-});
+}
 
-export default SubmitedClinics;
+async function read(id) {
+    const clinic = await prisma.clinic.findUnique({
+        where: {
+            id,
+        }
+    })
+
+    return clinic;
+}
+
+async function update(clinic, id) {
+    const updatedClinic = await prisma.clinic.update({
+        where: {
+            id,
+        },
+        data: clinic
+    });
+
+    return updatedClinic;
+}
+
+async function remove(id) {
+    const removedClinic = await prisma.clinic.delete({
+        where: {
+            id,
+        },
+    });
+
+    return removedClinic;
+}
+
+export default {
+    create,
+    readAll,
+    read,
+    update,
+    remove,
+};

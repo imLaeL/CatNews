@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Clinic {
+  id    Int     @id @default(autoincrement())
+  name String  
+  imageurl  String
+  horario_aberto String
+  horario_fechado String
+  address Address[]
+}
+
+model Address {
+  CEP        String     @id 
+  rua     String
+  numero String
+  cidade String
+  clinic   Clinic    @relation(fields: [clinic_id], references: [id])
+  clinic_id Int
+}
+  
