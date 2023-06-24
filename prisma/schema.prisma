@@ -18,6 +18,7 @@ model Clinic {
   horario_aberto String
   horario_fechado String
   address Address[]
+  medics MedicOnClinic[]
 }
 
 model Address {
@@ -29,3 +30,18 @@ model Address {
   clinic_id Int
 }
   
+model Medic {
+  id Int @id @default(autoincrement())
+  name_medic String
+  especialidade String
+  clinics MedicOnClinic[]
+}
+
+model MedicOnClinic {
+  medic Medic @relation(fields: [medic_id], references: [id])
+  medic_id Int
+  clinic Clinic @relation(fields: [clinic_id], references: [id])
+  clinic_id Int
+
+  @@id([medic_id, clinic_id], name: "medic_clinic_id")
+}

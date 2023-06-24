@@ -18,3 +18,28 @@ export const clinic_address = [
     clinic_id: 1,
   },
 ];
+
+export const medics = [
+  {
+    id: 1,
+    name_medic: 'Dr Jaildo',
+    especialidade: 'Gripe Felina'
+  },
+  {
+    id: 2,
+    name_medic: 'Dr Lázaro',
+    especialidade: 'Virose Felina'
+  },
+]
+
+
+export const medics_clinics = [
+  {
+    medic_id: 1,
+    clinic_id: 1
+  },
+  {
+    medic_id: 2,
+    clinic_id: 1
+  },
+]

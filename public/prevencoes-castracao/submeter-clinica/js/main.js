@@ -7,7 +7,7 @@ function getClinics(clinic, address) {
             <p class="clinic-name CEP">CEP: ${address.CEP}</p>
             <p class="clinic-name rua">Rua: ${address.rua}</p>
             <p class="clinic-name numero">Número: ${address.numero}</p>
-            <p class="clinic-name cidade">Cidade: ${address.cidade}</p>            
+            <p class="clinic-name cidade">Cidade: ${address.cidade}</p>        
             <div class="icon-trash" id="lixeira" style="justify-content: center; flex-wrap: wrap; display: flex; cursor: pointer;">
                 <span
                     class="iconify"
@@ -101,11 +101,17 @@ function loadFormSubmit() {
 
         const cidade = document.querySelector('#cidade').value;
 
+        const name_medic = document.querySelector('#medico').value;
+
+        const especialidade = document.querySelector('#especialidade').value;
+
         const clinic = { name, imageurl, horario_aberto, horario_fechado };
 
         const address = { CEP, rua, numero, cidade };
 
-        const data = { clinic, address }
+        const medic = { name_medic, especialidade }
+
+        const data = { clinic, address, medic }
 
         try {
 

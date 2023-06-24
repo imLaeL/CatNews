@@ -2,6 +2,8 @@ import { Router } from 'express';
 import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
 import SubmitedClinics from './model/submited_clinics.js';
 import Address from './model/address.js';
+import Medic from './model/medics.js';
+import Medic_Clinic from './model/medic_on_clinic.js';
 
 class HTTPError extends Error {
   constructor(message, code) {
@@ -26,15 +28,32 @@ router.get('/clinicas-submetidas', async (req, res) => {
 
 // Adiciona novas clínicas
 router.post('/clinicas-submetidas', async (req, res) => {
-  const { clinic, address } = req.body;
+  const { clinic, address, medic } = req.body;
 
   try {
+      //Crio clínica
       const newClinic = await SubmitedClinics.create(clinic);
-      console.log('\n\n', newClinic, '\n\n');
-      const id = newClinic.id;
-      const addressClinic = { ...address, clinic_id: id };
-      await Address.create(addressClinic);
       
+      console.log('\n\n', newClinic, '\n\n');
+     
+      //Crio médico
+      const newMedic = await Medic.create(medic);
+
+      //Pego id da clínica criada
+      const id_clinic = newClinic.id;
+      
+      //Pego o id do médico criado
+      const id_medic = newMedic.id;
+
+      //Endereço é igual os dados da requisição com o id da clínica.
+      const addressClinic = { ...address, clinic_id: id_clinic };
+
+      //Crio endereço
+      await Address.create(addressClinic);
+
+      //Crio tabela do relacionamento médico e clínica
+      await Medic_Clinic.create(id_medic, id_clinic);
+
       if (newClinic) {
         res.json({ clinic: newClinic, address: addressClinic });
       } else {
@@ -92,6 +111,20 @@ router.get('/enderecos', async (req, res) => {
 
   res.json(clinic_addresses);
 });
+
+// Mostra todos os médicos
+router.get('/medicos', async (req, res) => {
+  const medics = await Medic.readAll();
+
+  res.json(medics);
+})
+
+// Mostra médicos que trabalham nas clínicas
+router.get('/medicos_clinicas', async (req, res) => {
+  const medics_clinics = await Medic_Clinic.readAll();
+
+  res.json(medics_clinics);
+})
 
 // Erro 404
 

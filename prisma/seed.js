@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { submited_clinics, clinic_address } from './data.js';
+import { submited_clinics, clinic_address, medics, medics_clinics } from './data.js';
 
 const prisma = new PrismaClient();
 
@@ -17,6 +17,18 @@ async function seed() {
             await prisma.Address.create({
                 data: address
             });
+        }
+
+        for (const medic of medics) {
+            await prisma.Medic.create({
+                data: medic
+            })
+        }
+
+        for (const medic_clinic of medics_clinics) {
+            await  prisma.MedicOnClinic.create({
+                data: medic_clinic
+            })
         }
 
         console.log('\nSementes inseridas com sucesso')
