@@ -55,7 +55,7 @@ router.post('/clinicas-submetidas', async (req, res) => {
       await Medic_Clinic.create(id_medic, id_clinic);
 
       if (newClinic) {
-        res.json({ clinic: newClinic, address: addressClinic });
+        res.json({ clinic: newClinic, address: addressClinic, medic: newMedic });
       } else {
         throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
       }
@@ -91,7 +91,33 @@ router.delete('/clinicas-submetidas/:id', async (req, res) => {
   const id = Number(req.params.id);
 
   try {
-    if (id && (await SubmitedClinics.remove(id))) {
+
+    /* const teste = await Medic_Clinic.remove(id);
+   console.log('\n\n', teste, '\n\n')
+    const removedClinic = await SubmitedClinics.remove(id);
+    console.log('\n\n',removedClinic, '\n\n') */
+
+    async function remove(id) {
+      // Deleta os dados da tabela pelo id da clínica
+      await prisma.medicOnClinic.deleteMany({
+        where: {
+          clinic_id: id
+        }
+      });
+    
+      // Deleta a clínica pelo id
+      const removedClinic = await prisma.clinic.delete({
+        where: {
+          id: id
+        }
+      });
+    
+      return removedClinic;
+    }
+
+    const removedClinic = remove(id);
+
+    if (id && removedClinic) {
       res.sendStatus(204);
     } else {
       throw new HTTPError(

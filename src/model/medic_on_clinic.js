@@ -30,4 +30,15 @@ async function read(medic_id, clinic_id) {
     return MedicOnClinic;
 }
 
-export default { create, readAll, read };
+async function remove(id) {
+    const removedMedicClinic = await prisma.medicOnClinic.deleteMany({
+        where: {
+            clinic_id: id
+        }
+        
+    });
+
+    return removedMedicClinic;
+}
+
+export default { create, readAll, read, remove };

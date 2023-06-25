@@ -1,4 +1,4 @@
-function getClinics(clinic, address) {
+function getClinics(clinic, address, medic) {
     return `
         <div class="clinic" id="clinic-${clinic.id}">
             <img src="${clinic.imageurl}" width="400px" height="300px">
@@ -7,7 +7,8 @@ function getClinics(clinic, address) {
             <p class="clinic-name CEP">CEP: ${address.CEP}</p>
             <p class="clinic-name rua">Rua: ${address.rua}</p>
             <p class="clinic-name numero">Número: ${address.numero}</p>
-            <p class="clinic-name cidade">Cidade: ${address.cidade}</p>        
+            <p class="clinic-name cidade">Cidade: ${address.cidade}</p>  
+            <p class="clinic-name medico">Médico reponsável: ${medic.name_medic}</p>      
             <div class="icon-trash" id="lixeira" style="justify-content: center; flex-wrap: wrap; display: flex; cursor: pointer;">
                 <span
                     class="iconify"
@@ -21,10 +22,10 @@ function getClinics(clinic, address) {
     `;
 }
 
-function addClinics(clinic, address) {
+function addClinics(clinic, address, medic) {
     const submitedClinics = document.querySelector('#submited-clinics');
 
-    const clinicsView = getClinics(clinic, address);
+    const clinicsView = getClinics(clinic, address, medic);
 
     submitedClinics.insertAdjacentHTML('beforeend', clinicsView);
     
@@ -57,15 +58,19 @@ async function loadClinics() {
     try {
         const response_clinics = await fetch('/clinicas-submetidas');
         const response_address = await fetch('/enderecos');
+        const response_medic = await fetch('/medicos')
         
-        if (response_clinics.ok && response_address.ok) {
+        if (response_clinics.ok && response_address.ok && response_medic.ok) {
             const clinics = await response_clinics.json();
             const addresses = await response_address.json();
+            const medics = await response_medic.json()
 
             for (let i = 0; i < clinics.length; i ++) {
                 const clinic = clinics[i];
                 const address = addresses[i];
-                addClinics(clinic, address);
+                const medic = medics[i];
+
+                addClinics(clinic, address, medic);
             }
         
         } else {
@@ -119,13 +124,13 @@ function loadFormSubmit() {
                 method: 'post',
                 body: JSON.stringify(data),
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json', 
                 },
             });
 
             if (response.ok) {
-                const { clinic: newClinic, address: newAddress } = await response.json();
-                addClinics(newClinic, newAddress);
+                const { clinic: newClinic, address: newAddress, medic: newMedic } = await response.json();
+                addClinics(newClinic, newAddress, newMedic);
                 form.reset();
                 document.querySelector('.addclinicbutton').click();
             } else {
