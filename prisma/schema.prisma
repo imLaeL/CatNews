@@ -45,3 +45,10 @@ model MedicOnClinic {
 
   @@id([medic_id, clinic_id], name: "medic_clinic_id")
 }
+
+model User {
+  id Int @id @default(autoincrement())
+  username String
+  email String
+  password String
+}

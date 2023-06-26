@@ -1,9 +1,11 @@
 import { Router } from 'express';
 import { clinics } from '../public/prevencoes-castracao/clinicas/data/clinics.js';
+import prisma from './database/database.js';
 import SubmitedClinics from './model/submited_clinics.js';
 import Address from './model/address.js';
 import Medic from './model/medics.js';
 import Medic_Clinic from './model/medic_on_clinic.js';
+import Users from './model/user.js'
 
 class HTTPError extends Error {
   constructor(message, code) {
@@ -31,35 +33,35 @@ router.post('/clinicas-submetidas', async (req, res) => {
   const { clinic, address, medic } = req.body;
 
   try {
-      //Crio clínica
-      const newClinic = await SubmitedClinics.create(clinic);
-      
-      console.log('\n\n', newClinic, '\n\n');
-     
-      //Crio médico
-      const newMedic = await Medic.create(medic);
+    //Crio clínica
+    const newClinic = await SubmitedClinics.create(clinic);
 
-      //Pego id da clínica criada
-      const id_clinic = newClinic.id;
-      
-      //Pego o id do médico criado
-      const id_medic = newMedic.id;
+    console.log('\n\n', newClinic, '\n\n');
 
-      //Endereço é igual os dados da requisição com o id da clínica.
-      const addressClinic = { ...address, clinic_id: id_clinic };
+    //Crio médico
+    const newMedic = await Medic.create(medic);
 
-      //Crio endereço
-      await Address.create(addressClinic);
+    //Pego id da clínica criada
+    const id_clinic = newClinic.id;
 
-      //Crio tabela do relacionamento médico e clínica
-      await Medic_Clinic.create(id_medic, id_clinic);
+    //Pego o id do médico criado
+    const id_medic = newMedic.id;
 
-      if (newClinic) {
-        res.json({ clinic: newClinic, address: addressClinic, medic: newMedic });
-      } else {
-        throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
-      }
-  } catch(err) {
+    //Endereço é igual os dados da requisição com o id da clínica.
+    const addressClinic = { ...address, clinic_id: id_clinic };
+
+    //Crio endereço
+    await Address.create(addressClinic);
+
+    //Crio tabela do relacionamento médico e clínica
+    await Medic_Clinic.create(id_medic, id_clinic);
+
+    if (newClinic) {
+      res.json({ clinic: newClinic, address: addressClinic, medic: newMedic });
+    } else {
+      throw new HTTPError('Dados inválidos para adicionar a clínica ;( ', 400);
+    }
+  } catch (err) {
     console.log(err);
   }
 
@@ -99,35 +101,41 @@ router.delete('/clinicas-submetidas/:id', async (req, res) => {
 
     async function remove(id) {
       // Deleta os dados da tabela pelo id da clínica
+
       await prisma.medicOnClinic.deleteMany({
         where: {
-          clinic_id: id
-        }
+          clinic_id: id,
+        },
       });
-    
-      // Deleta a clínica pelo id
+
+      await prisma.address.deleteMany({
+        where: {
+          clinic_id: id,
+        },
+      });
+
       const removedClinic = await prisma.clinic.delete({
         where: {
-          id: id
-        }
+          id: id,
+        },
       });
-    
+
       return removedClinic;
     }
 
-    const removedClinic = remove(id);
+    const removedClinic = await remove(id);
 
-    if (id && removedClinic) {
-      res.sendStatus(204);
-    } else {
-      throw new HTTPError(
-        'O id é necessário para remover a clínica submetida',
-        400
-      );
-    }
-  } catch (error) {
-    console.log('Ocorreu um erro ao deletar a clínica:', error);
+  if (id && removedClinic) {
+    res.sendStatus(204);
+  } else {
+    throw new HTTPError(
+      'O id é necessário para remover a clínica submetida',
+      400
+    );
   }
+} catch (error) {
+  console.log('Ocorreu um erro ao deletar a clínica:', error);
+}
 });
 
 // Mostra todos os endereços submetidos
@@ -150,6 +158,31 @@ router.get('/medicos_clinicas', async (req, res) => {
   const medics_clinics = await Medic_Clinic.readAll();
 
   res.json(medics_clinics);
+})
+
+//Mostra usuários cadastrados
+router.get('/users', async (req, res) => {
+  const users = await Users.readAll();
+
+  res.json(users);
+})
+
+router.post('/users', async (req, res) => {
+    try {
+    const data = req.body;
+    const user_created = await Users.create(data);
+
+      if (user_created) {
+        console.log('Usuário criado com sucesso!');
+        res.sendStatus(200);
+     } else {
+       console.error('Houve um erro ao se cadastrar');
+       res.sendStatus(500);
+     }
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
+    }
 })
 
 // Erro 404

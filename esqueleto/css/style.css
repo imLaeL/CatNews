@@ -89,6 +89,10 @@ body {
   transition: 0.2s ease-in-out;
 }
 
+.fa-solid {
+  font-size: 1.5rem;
+}
+
 
 /* Para tirar a cor azul que fica quando a palavra é um link e para definir o tamanho */
 

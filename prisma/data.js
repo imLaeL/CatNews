@@ -38,8 +38,13 @@ export const medics_clinics = [
     medic_id: 1,
     clinic_id: 1
   },
+]
+
+export const users = [
   {
-    medic_id: 2,
-    clinic_id: 1
-  },
+    id: 1,
+    username: 'teste',
+    email: 'testes@testemail.com',
+    password: 't3st35@'
+  }
 ]
