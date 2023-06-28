@@ -167,23 +167,16 @@ router.get('/users', async (req, res) => {
   res.json(users);
 })
 
+//Cadastro do usuário
 router.post('/users', async (req, res) => {
-    try {
-    const data = req.body;
-    const user_created = await Users.create(data);
+  const user = req.body;
 
-      if (user_created) {
-        console.log('Usuário criado com sucesso!');
-        res.sendStatus(200);
-     } else {
-       console.error('Houve um erro ao se cadastrar');
-       res.sendStatus(500);
-     }
-    } catch (error) {
-      console.error(error);
-      res.sendStatus(500);
-    }
-})
+  delete user.confirmationPassword;
+
+  const newUser = await Users.create(user);
+
+  res.status(201).json(newUser);
+});
 
 // Erro 404
 

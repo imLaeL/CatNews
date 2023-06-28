@@ -133,6 +133,9 @@ body {
   right: 0;
 }
 
+.fa-solid {
+  font-size: 1.5rem;
+}
 
 /* Links para redes sociais*/
   /* Deixa cada ícone um do lado do outro */
