@@ -37,7 +37,7 @@ p {
     e sem rolar junto com a página */
 
 #fundo {
-    padding-top: 80px;
+    padding-top: 1rem;
     background-image: url(img/pagina-inicial-fundo.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -173,7 +173,6 @@ p {
 .container p {
     color: #333;
 }
-
 
 
 /* Fim do corpo da página*/

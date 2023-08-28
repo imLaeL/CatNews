@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--Selecione o título da página-->
-    <title>Login</title>
+    <title>Signup</title>
 
     <!--estilo da página-->
     <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -63,10 +63,10 @@
                 </div>
 
                 <div class="outras-paginas hvr-underline-from-center">
-                    <a href="./signup.html" class="links">
+                    <a href="./signin.html" class="links">
                         <p class="texto-header">
                             <i class="fa-solid fa-user"></i>
-                            Login
+                            Signin
                         </p>
                     </a>
                 </div>
@@ -90,18 +90,26 @@
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="name" class="form-control" name="username" id="username" placeholder="Carlos Andrade" required>
+                                <div class="invalid-feedback">Informe o nome do usuário.</div>
                             </div>
                         
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="email@email.com" required>
+                                <div class="invalid-feedback">Informe o email do usuário</div>
                             </div>
                         
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" name="password" id="password" minlength="8" required>
+                                <div class="invalid-feedback">Informe a senha com 8 caracteres.</div>
                             </div>
-                        
+
+                            <div class="mb-3">
+                                <label for="confirmationPassword" class="form-label">Confirm password</label>
+                                <input type="password" class="form-control" name="confirmationPassword" id="confirmationPassword" required>
+                                <div class="invalid-feedback">Informe a confirmação de senha.</div>
+                            </div>
                         
                             <input type="submit" class="btn btn-secondary" value="Cadastrar" />
                         
