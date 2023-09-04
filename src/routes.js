@@ -5,7 +5,11 @@ import SubmitedClinics from './model/submited_clinics.js';
 import Address from './model/address.js';
 import Medic from './model/medics.js';
 import Medic_Clinic from './model/medic_on_clinic.js';
-import Users from './model/user.js'
+import Users from './model/user.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+const saltRounds = Number(process.env.SALT_ROUNDS)
 
 class HTTPError extends Error {
   constructor(message, code) {
@@ -172,6 +176,10 @@ router.post('/users', async (req, res) => {
   const user = req.body;
 
   delete user.confirmationPassword;
+
+  const hash = await bcrypt.hash(user.password, saltRounds);
+
+  user.password = hash;
 
   const newUser = await Users.create(user);
 
