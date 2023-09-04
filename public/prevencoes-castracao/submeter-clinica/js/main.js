@@ -1,3 +1,5 @@
+import API from "../../../login/js/lib/auth.js";
+
 function getClinics(clinic, address, medic) {
     return `
         <div class="clinic" id="clinic-${clinic.id}">
@@ -36,17 +38,19 @@ function addClinics(clinic, address, medic) {
     lixeiraIcon.onclick = async () =>  {
         const id = parseInt(clinic.id);
         try { 
-           fetch(`/clinicas-submetidas/${id}`, {
+           const response = fetch(`/clinicas-submetidas/${id}`, {
                 method: 'delete',
-            }).then((response) => {
-                if (response.ok) {
+                headers : {
+                    Authorization: `Bearer ${API.getToken()}`,
+                }
+            });
+ 
+            if (response.ok) {
                     submited_clinic_div.remove();
                 } else {
                     throw new Error('Falha ao excluir clínica');
                 }
-            }).catch((error) => {
-                console.error(error);
-            });
+            
 
         } catch (error) {
             console.error('Erro ao deletar a clínica', error);
@@ -56,9 +60,26 @@ function addClinics(clinic, address, medic) {
 
 async function loadClinics() {
     try {
-        const response_clinics = await fetch('/clinicas-submetidas');
-        const response_address = await fetch('/enderecos');
-        const response_medic = await fetch('/medicos')
+        const response_clinics = await fetch('/clinicas-submetidas', {
+            method: 'get',
+            headers: {
+                Authorization: `Bearer ${API.getToken()}`,
+            }, 
+        });
+
+        const response_address = await fetch('/enderecos', {
+            method: 'get',
+            headers: {
+                Authorization: `Bearer ${API.getToken()}`,
+            },
+        });
+        
+        const response_medic = await fetch('/medicos', {
+            method: 'get',
+            headers: {
+                Authorization: `Bearer ${API.getToken()}`,
+            },
+        });
         
         if (response_clinics.ok && response_address.ok && response_medic.ok) {
             const clinics = await response_clinics.json();
@@ -124,7 +145,8 @@ function loadFormSubmit() {
                 method: 'post',
                 body: JSON.stringify(data),
                 headers: {
-                    'Content-Type': 'application/json', 
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${API.getToken()}`, 
                 },
             });
 
@@ -145,6 +167,12 @@ function loadFormSubmit() {
     };
 }
 
-loadClinics();
+window.signout = API.signout;
 
-loadFormSubmit();
+
+if (API.isAuthenticated) {
+
+    loadClinics();
+
+    loadFormSubmit();
+}

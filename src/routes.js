@@ -186,6 +186,33 @@ router.post('/users', async (req, res) => {
   res.status(201).json(newUser);
 });
 
+//Login de usuário
+router.post('/signin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await Users.readByEmail(email);
+
+    const { id: userId, password: hash } = user;
+
+    const match = await bcrypt.compare(password, hash);
+
+    if (match) {
+      const token = jwt.sign(
+        { userId },
+        process.env.JWT_SECRET,
+        { expiresIn: 3600 } // 1h
+      );
+
+      res.json({ auth: true, token });
+    } else {
+      throw new Error('User not found');
+    }
+  } catch (error) {
+    res.status(401).json({ error: 'User not found' });
+  }
+});
+
 // Erro 404
 
 router.use((req, res, next) => {
