@@ -7,6 +7,12 @@ const prisma = new PrismaClient();
 async function seed() {
     try {
 
+        for (const user of users) {
+             await prisma.user.create({
+                data: user
+            });
+        }
+
         for (const clinic of submited_clinics) {
             await prisma.Clinic.create({
                 data: clinic
@@ -31,11 +37,7 @@ async function seed() {
             })
         }
 
-        for (const user of users) {
-            await prisma.user.create({
-                data: user
-            })
-        }
+       
 
         console.log('\nSementes inseridas com sucesso')
     } catch (error) {

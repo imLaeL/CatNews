@@ -26,14 +26,14 @@ router.get('/clinicas-joao-pessoa', (req, res) => {
 
 // Mostra as clínicas submetidas por usuários no formato JSON
 
-router.get('/clinicas-submetidas', async (req, res) => {
+router.get('/clinicas-submetidas', isAuthenticated, async (req, res) => {
   const submited_clinics = await SubmitedClinics.readAll();
 
   res.json(submited_clinics);
 });
 
 // Adiciona novas clínicas
-router.post('/clinicas-submetidas', async (req, res) => {
+router.post('/clinicas-submetidas', isAuthenticated, async (req, res) => {
   const { clinic, address, medic } = req.body;
 
   try {
@@ -74,7 +74,7 @@ router.post('/clinicas-submetidas', async (req, res) => {
 
 // Atualiza clínicas
 
-router.put('/clinicas-submetidas/:id', async (req, res) => {
+router.put('/clinicas-submetidas/:id', isAuthenticated, async (req, res) => {
   const id = Number(req.params.id);
 
   const submited_clinic = req.body;
@@ -93,7 +93,7 @@ router.put('/clinicas-submetidas/:id', async (req, res) => {
 
 // Deleta dados
 
-router.delete('/clinicas-submetidas/:id', async (req, res) => {
+router.delete('/clinicas-submetidas/:id', isAuthenticated, async (req, res) => {
   const id = Number(req.params.id);
 
   try {
