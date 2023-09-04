@@ -29,7 +29,7 @@ model Address {
   clinic   Clinic    @relation(fields: [clinic_id], references: [id])
   clinic_id Int
 }
-  
+
 model Medic {
   id Int @id @default(autoincrement())
   name_medic String
