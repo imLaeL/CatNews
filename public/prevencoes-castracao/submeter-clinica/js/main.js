@@ -35,21 +35,16 @@ function addClinics(clinic, address, medic) {
 
     const lixeiraIcon = submited_clinic_div.querySelector('.icon-trash');
 
-    lixeiraIcon.onclick = async () =>  {
-        const id = parseInt(clinic.id);
+    lixeiraIcon.onclick = () =>  {
         try { 
-           const response = fetch(`/clinicas-submetidas/${id}`, {
+           fetch(`/clinicas-submetidas/${clinic.id}`, {
                 method: 'delete',
                 headers : {
                     Authorization: `Bearer ${API.getToken()}`,
                 }
             });
- 
-            if (response.ok) {
-                    submited_clinic_div.remove();
-                } else {
-                    throw new Error('Falha ao excluir clínica');
-                }
+           
+            submited_clinic_div.remove();
             
 
         } catch (error) {

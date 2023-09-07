@@ -9,6 +9,8 @@ import Users from './model/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { isAuthenticated } from './middleware/auth.js';
+
 const saltRounds = Number(process.env.SALT_ROUNDS)
 
 class HTTPError extends Error {
@@ -35,6 +37,8 @@ router.get('/clinicas-submetidas', isAuthenticated, async (req, res) => {
 // Adiciona novas clínicas
 router.post('/clinicas-submetidas', isAuthenticated, async (req, res) => {
   const { clinic, address, medic } = req.body;
+
+  clinic.userId = req.userId;
 
   try {
     //Crio clínica
