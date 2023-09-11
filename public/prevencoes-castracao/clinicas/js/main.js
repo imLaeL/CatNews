@@ -1,4 +1,5 @@
 import { clinics } from "../data/clinics.js";
+import API from '../../../login/js/lib/auth.js'
 
 function getClinics(clinic) {
 
@@ -34,3 +35,10 @@ for (const clinic of clinics) {
 clinics_list;
 
 document.querySelector('section#clinicas').innerHTML = clinics_list;
+
+if (API.isAuthenticated()) {
+    document.querySelector('#botão').style.display = 'block';
+  
+  } else {
+    document.querySelector('#botão').style.display = 'none';
+}
