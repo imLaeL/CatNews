@@ -9,16 +9,15 @@ POST {{host}}/users
 Content-Type: application/json
 
 {
-    "username": "imteste",
-    "email": "imteste@email.com",
-    "password": "imteste123"
+    "username": "teste",
+    "email": "teste@email.com",
+    "password": "teste123"
 }
-
 
 POST {{host}}/signin
 Content-Type: application/json
 
 {
-    "email": "teste@gmail.com",
-    "password": "teste12345678"
+    "email": "teste@email.com",
+    "password": "teste123"
 }
