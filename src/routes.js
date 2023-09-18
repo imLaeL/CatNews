@@ -9,7 +9,9 @@ import Users from './model/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
+import { z } from 'zod';
 
 const saltRounds = Number(process.env.SALT_ROUNDS)
 
@@ -35,7 +37,26 @@ router.get('/clinicas-submetidas', isAuthenticated, async (req, res) => {
 });
 
 // Adiciona novas clínicas
-router.post('/clinicas-submetidas', isAuthenticated, async (req, res) => {
+router.post('/clinicas-submetidas', isAuthenticated, validate(
+  z.object({
+    body: z.object({
+      name: z.string(),
+      img: z.string(),
+      horario_aberto: z.string(),
+      horario_fechado: z.string(),
+      CEP: z.string(),
+      rua: z.string(),
+      numero: z.number(),
+      cidade: z.string(),
+      medico: z.string(),
+      especialidade: z.string(),
+
+    }),
+  })
+),
+
+
+async (req, res) => {
   const { clinic, address, medic } = req.body;
 
   clinic.userId = req.userId;
@@ -43,8 +64,6 @@ router.post('/clinicas-submetidas', isAuthenticated, async (req, res) => {
   try {
     //Crio clínica
     const newClinic = await SubmitedClinics.create(clinic);
-
-    console.log('\n\n', newClinic, '\n\n');
 
     //Crio médico
     const newMedic = await Medic.create(medic);
@@ -78,7 +97,29 @@ router.post('/clinicas-submetidas', isAuthenticated, async (req, res) => {
 
 // Atualiza clínicas
 
-router.put('/clinicas-submetidas/:id', isAuthenticated, async (req, res) => {
+router.put('/clinicas-submetidas/:id', isAuthenticated,
+validate(
+  z.object({
+    params: z.object({
+      id: z.number(),
+    }),
+    body: z.object({
+      name: z.string(),
+      img: z.string(),
+      horario_aberto: z.string(),
+      horario_fechado: z.string(),
+      CEP: z.string(),
+      rua: z.string(),
+      numero: z.number(),
+      cidade: z.string(),
+      medico: z.string(),
+      especialidade: z.string(),
+    }),
+  })
+),
+
+
+async (req, res) => {
   const id = Number(req.params.id);
 
   const submited_clinic = req.body;

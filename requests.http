@@ -1,10 +1,10 @@
 @host = http://localhost:3000
 
 GET {{host}}/clinicas-submetidas
-
+###
 
 GET {{host}}/users 
-
+###
 POST {{host}}/users
 Content-Type: application/json
 
@@ -13,6 +13,7 @@ Content-Type: application/json
     "email": "teste@email.com",
     "password": "teste123"
 }
+###
 
 POST {{host}}/signin
 Content-Type: application/json
@@ -21,3 +22,4 @@ Content-Type: application/json
     "email": "teste@email.com",
     "password": "teste123"
 }
+###
