@@ -23,3 +23,13 @@ Content-Type: application/json
     "password": "teste123"
 }
 ###
+
+POST {{host}}/clinicas-submetidas
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "img": "imgteste"
+}
+
+###

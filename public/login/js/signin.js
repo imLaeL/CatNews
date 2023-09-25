@@ -7,6 +7,8 @@ const form = document.querySelector('form');
 async function handleSubmit(event) {
   event.preventDefault();
 
+  if (form.checkValidity()) {
+
   const user = Object.fromEntries(new FormData(form));
 
   const config = {
@@ -25,5 +27,6 @@ async function handleSubmit(event) {
     API.signin(token);
   } else {
     console.log('Error no login');
+  }
   }
 }
