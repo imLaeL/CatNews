@@ -156,6 +156,13 @@ p {
     font-family: 'Montserrat';
 }
 
+#div_alert {
+    justify-content: center;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 #submeter-clinica {
     margin-top: 4%;
     text-align: center;

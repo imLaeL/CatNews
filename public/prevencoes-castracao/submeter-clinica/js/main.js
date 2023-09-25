@@ -152,6 +152,11 @@ function loadFormSubmit() {
         document.querySelector('.addclinicbutton').click();
       } else {
         console.error('Falha ao adicionar clínica:', response.statusText);
+        
+        const div_alert = `<div id="div_alert" class="alert alert-danger" role="alert">Dados inválidos para o cadastro</div`;
+        const div_message_alert = document.querySelector("#div_message_alert");
+        div_message_alert.insertAdjacentHTML('beforeend', div_alert);
+
       }
     } catch (error) {
       console.error('Erro ao adicionar clínica:', error.message);
