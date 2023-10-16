@@ -39,20 +39,28 @@ router.get('/clinicas-submetidas', isAuthenticated, async (req, res) => {
 });
 
 // Adiciona novas clínicas
-router.post('/clinicas-submetidas', isAuthenticated, validate(
+router.post('/clinicas-submetidas', isAuthenticated, 
+validate(
   z.object({
     body: z.object({
-      name: z.string(),
-      img: z.string(),
-      horario_aberto: z.string(),
-      horario_fechado: z.string(),
-      CEP: z.string(),
-      rua: z.string(),
-      numero: z.number(),
-      cidade: z.string(),
-      medico: z.string(),
-      especialidade: z.string(),
-
+      clinic: z.object({
+        name: z.string(),
+        imageurl: z.string(),
+        horario_aberto: z.string(),
+        horario_fechado: z.string(),
+      }),
+      address: z.object(
+        {
+          CEP: z.string(),
+          rua: z.string(),
+          numero: z.coerce.number(),
+          cidade: z.string(),
+        }
+      ),
+      medic: z.object({
+        name_medic: z.string(),
+        especialidade: z.string(),
+      })  
     }),
   })
 ),
@@ -73,6 +81,7 @@ async (req, res) => {
     //Pego id da clínica criada
     const id_clinic = newClinic.id;
 
+    
     //Pego o id do médico criado
     const id_medic = newMedic.id;
 
@@ -84,6 +93,10 @@ async (req, res) => {
 
     //Crio tabela do relacionamento médico e clínica
     await Medic_Clinic.create(id_medic, id_clinic);
+
+    const user_data = await Users.read(clinic.userId)
+
+    await SendMail.createNewUser_clinic(user_data.email);
 
     if (newClinic) {
       res.json({ clinic: newClinic, address: addressClinic, medic: newMedic });
@@ -240,7 +253,7 @@ router.post('/users',  validate(
 
     const newUser = await Users.create(user);
 
-    await SendMail.createNewUser(newUser.email);
+    await SendMail.createNewUser_email(newUser.email);
 
     res.status(201).json(newUser);
 });
