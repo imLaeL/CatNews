@@ -13,6 +13,8 @@ import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
 import { z } from 'zod';
 
+import SendMail from './services/SendMail.js';
+
 const saltRounds = Number(process.env.SALT_ROUNDS)
 
 class HTTPError extends Error {
@@ -217,18 +219,30 @@ router.get('/users', async (req, res) => {
 })
 
 //Cadastro do usuário
-router.post('/users', async (req, res) => {
-  const user = req.body;
+router.post('/users',  validate(
+  z.object({
+    body: z.object({
+      username: z.string(),
+      email: z.string().email(),
+      password: z.string().min(8),
+      confirmationPassword: z.string().min(8),
+    }),
+  })
+),
+  async (req, res) => {
+    const user = req.body;
 
-  delete user.confirmationPassword;
+    delete user.confirmationPassword;
 
-  const hash = await bcrypt.hash(user.password, saltRounds);
+    const hash = await bcrypt.hash(user.password, saltRounds);
 
-  user.password = hash;
+    user.password = hash;
 
-  const newUser = await Users.create(user);
+    const newUser = await Users.create(user);
 
-  res.status(201).json(newUser);
+    await SendMail.createNewUser(newUser.email);
+
+    res.status(201).json(newUser);
 });
 
 //Login de usuário
