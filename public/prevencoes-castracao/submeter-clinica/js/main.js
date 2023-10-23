@@ -118,7 +118,7 @@ function loadFormSubmit() {
 
     const clinic = { name, imageurl, horario_aberto, horario_fechado };
 
-    const address = { CEP, rua, cidade };
+    const address = { CEP };
 
     const medic = { name_medic, especialidade };
 
