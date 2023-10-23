@@ -26,7 +26,6 @@ model Clinic {
 model Address {
   CEP        String     @id 
   rua     String
-  numero String
   cidade String
   clinic   Clinic    @relation(fields: [clinic_id], references: [id])
   clinic_id Int

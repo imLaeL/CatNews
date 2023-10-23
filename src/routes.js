@@ -52,9 +52,6 @@ validate(
       address: z.object(
         {
           CEP: z.string(),
-          rua: z.string(),
-          numero: z.coerce.number(),
-          cidade: z.string(),
         }
       ),
       medic: z.object({
@@ -68,6 +65,12 @@ validate(
 
 async (req, res) => {
   const { clinic, address, medic } = req.body;
+
+  const more_address = await fetch(`https://viacep.com.br/ws/${address.CEP}/json/`)
+
+  address.rua = more_address.logradouro
+
+  address.cidade = more_address.localidade
 
   clinic.userId = req.userId;
 
