@@ -66,7 +66,9 @@ validate(
 async (req, res) => {
   const { clinic, address, medic } = req.body;
 
-  const more_address = await fetch(`https://viacep.com.br/ws/${address.CEP}/json/`);
+  const data = await fetch(`https://viacep.com.br/ws/${address.CEP}/json/`);
+
+  const more_address = await data.json();
 
   address.rua = more_address.logradouro;
 

@@ -24,31 +24,36 @@ function getClinics(clinic, address, medic) {
 }
 
 function addClinics(clinic, address, medic) {
-  const submitedClinics = document.querySelector('#submited-clinics');
+ 
+  if (clinic && address && medic) {
 
-  const clinicsView = getClinics(clinic, address, medic);
-
-  submitedClinics.insertAdjacentHTML('beforeend', clinicsView);
-
-  const submited_clinic_div = document.querySelector(`#clinic-${clinic.id}`);
-
-  const lixeiraIcon = submited_clinic_div.querySelector('.icon-trash');
-
-  lixeiraIcon.onclick = () => {
-    try {
-      fetch(`/clinicas-submetidas/${clinic.id}`, {
-        method: 'delete',
-        headers: {
-          Authorization: `Bearer ${API.getToken()}`,
-        },
-      });
-
-      submited_clinic_div.remove();
-    } catch (error) {
-      console.error('Erro ao deletar a clínica', error);
-    }
-  };
+    const submitedClinics = document.querySelector('#submited-clinics');
+  
+    const clinicsView = getClinics(clinic, address, medic);
+  
+    submitedClinics.insertAdjacentHTML('beforeend', clinicsView);
+  
+    const submited_clinic_div = document.querySelector(`#clinic-${clinic.id}`);
+  
+    const lixeiraIcon = submited_clinic_div.querySelector('.icon-trash');
+  
+    lixeiraIcon.onclick = () => {
+      try {
+        fetch(`/clinicas-submetidas/${clinic.id}`, {
+          method: 'delete',
+          headers: {
+            Authorization: `Bearer ${API.getToken()}`,
+          },
+        });
+  
+        submited_clinic_div.remove();
+      } catch (error) {
+        console.error('Erro ao deletar a clínica', error);
+      }
+    };
+  }
 }
+ 
 
 async function loadClinics() {
   try {
