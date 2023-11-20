@@ -20,7 +20,9 @@ model Clinic {
   address Address[]
   medics MedicOnClinic[]
   user User @relation("ClinicUser", fields: [userId], references: [id])
-  userId Int
+  userId String
+  broker     Broker   @relation(fields: [brokerId], references: [id])
+  brokerId   String
 }
 
 model Address {
@@ -48,9 +50,23 @@ model MedicOnClinic {
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   username String
   email String @unique
   password String
   clinics Clinic[] @relation("ClinicUser")
+  image Image?
+}
+
+model Image {
+  id String @id @default(uuid())
+  name String @unique
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+}
+
+model Broker {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  clinics Clinic[]
 }

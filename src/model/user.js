@@ -9,7 +9,15 @@ async function create(data) {
 }
 
 async function readAll() {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    include: {
+      image: {
+        select: {
+          path: true,
+        },
+      },
+    },
+  });
 
   return users;
 }
@@ -18,6 +26,13 @@ async function read(id) {
   const user = await prisma.user.findFirst({
     where: {
       id,
+    },
+    include: {
+      image: {
+        select: {
+          path: true,
+        },
+      },
     },
   });
 

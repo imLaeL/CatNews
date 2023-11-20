@@ -308,4 +308,64 @@ router.use((err, req, res, next) => {
   }
 });
 
+router.get('/users/me', isAuthenticated, async (req, res) => {
+  try {
+    const userId = req.userId;
+
+    const user = await User.read(userId);
+
+    delete user.password;
+
+    return res.json(user);
+  } catch (error) {
+    throw new HTTPError('Unable to find user', 400);
+  }
+});
+
+router.post(
+  '/users/image',
+  isAuthenticated,
+  multer(uploadConfig).single('image'),
+  async (req, res) => {
+    try {
+      const userId = req.userId;
+
+      if (req.file) {
+        const path = `/imgs/profile/${req.file.filename}`;
+
+        await Image.create({ userId, path });
+
+        res.sendStatus(201);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      throw new HTTPError('Unable to create image', 400);
+    }
+  }
+);
+
+router.put(
+  '/users/image',
+  isAuthenticated,
+  multer(uploadConfig).single('image'),
+  async (req, res) => {
+    try {
+      const userId = req.userId;
+
+      if (req.file) {
+        const path = `/imgs/profile/${req.file.filename}`;
+
+        const image = await Image.update({ userId, path });
+
+        res.json(image);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      throw new HTTPError('Unable to create image', 400);
+    }
+  }
+);
+
 export default router;
