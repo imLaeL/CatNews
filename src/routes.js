@@ -8,7 +8,9 @@ import Medic_Clinic from './model/medic_on_clinic.js';
 import Users from './model/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-
+import multer from 'multer';
+import Image from './model/Image.js';
+import uploadConfig from './config/multer.js';
 import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
 import { z } from 'zod';
