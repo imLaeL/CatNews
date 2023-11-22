@@ -1,10 +1,16 @@
 @host = http://localhost:3000
+@createdUserId = {{createdUser.response.body.$.id}}
+@token = {{signin.response.body.$.token}}
+@userId = {{userMe.response.body.$.id}}
 
 GET {{host}}/clinicas-submetidas
 ###
 
 GET {{host}}/users 
+
 ###
+
+# @name createdUser
 POST {{host}}/users
 Content-Type: application/json
 
@@ -16,22 +22,22 @@ Content-Type: application/json
 }
 ###
 
+# @name signin
 POST {{host}}/signin
 Content-Type: application/json
 
 {
-    "email": "calos@gmail.com",
+    "email": "carlos@gmail.com",
     "password": "12345678"
 }
+
+
 ###
 
-POST {{host}}/clinicas-submetidas
-Content-Type: application/json
+# @name userMe
 
-{
-    "name": "teste",
-    "img": "imgteste"
-}
+GET {{host}}/users/me
+Authorization: bearer {{token}}
 
 ### Create Image
 
@@ -43,6 +49,24 @@ Content-Type: multipart/form-data; boundary="boundary"
 Content-Disposition: form-data; name="userId"
 
 {{createdUserId}}
+--boundary
+Content-Disposition: form-data; name="image"; filename="avatar.png"
+Content-Type: image/png
+
+< ./public/imgs/profile/avatar.png
+--boundary--
+
+
+### Update Image (User)
+
+PUT {{host}}/users/image
+Authorization: bearer {{token}}
+Content-Type: multipart/form-data; boundary="boundary"
+
+--boundary
+Content-Disposition: form-data; name="userId"
+
+{{userId}}
 --boundary
 Content-Disposition: form-data; name="image"; filename="avatar.png"
 Content-Type: image/png

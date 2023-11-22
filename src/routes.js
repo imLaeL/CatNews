@@ -314,7 +314,7 @@ router.get('/users/me', isAuthenticated, async (req, res) => {
   try {
     const userId = req.userId;
 
-    const user = await User.read(userId);
+    const user = await Users.read(userId);
 
     delete user.password;
 
