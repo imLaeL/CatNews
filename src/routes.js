@@ -292,24 +292,6 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-// Erro 404
-
-router.use((req, res, next) => {
-  res.status(404).json({ message: 'Conteúdo não foi achado ;(  ' });
-});
-
-// Manipulador de erros
-
-router.use((err, req, res, next) => {
-  console.error(err.stack);
-
-  if (err instanceof HTTPError) {
-    res.status(err.code).json({ message: err.message });
-  } else {
-    res.status(500).json({ message: 'Something broke!' });
-  }
-});
-
 router.get('/users/me', isAuthenticated, async (req, res) => {
   try {
     const userId = req.userId;
@@ -335,9 +317,9 @@ router.post(
       if (req.file) {
         const path = `/imgs/profile/${req.file.filename}`;
 
-        await Image.create({ userId, path });
+        const newImage = await  Image.create({ userId, path });
 
-        res.sendStatus(201);
+        res.status(201).json(newImage);
       } else {
         throw new Error();
       }
@@ -369,5 +351,24 @@ router.put(
     }
   }
 );
+
+// Erro 404
+
+router.use((req, res, next) => {
+  res.status(404).json({ message: 'Conteúdo não foi achado ;(  ' });
+});
+
+// Manipulador de erros
+
+router.use((err, req, res, next) => {
+  console.error(err.stack);
+
+  if (err instanceof HTTPError) {
+    res.status(err.code).json({ message: err.message });
+  } else {
+    res.status(500).json({ message: 'Something broke!' });
+  }
+});
+
 
 export default router;
