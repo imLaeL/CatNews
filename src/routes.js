@@ -47,7 +47,7 @@ validate(
     body: z.object({
       clinic: z.object({
         name: z.string(),
-        imageurl: z.string(),
+        imageId: z.string(),
         horario_aberto: z.string(),
         horario_fechado: z.string(),
       }),
@@ -314,10 +314,14 @@ router.post(
     try {
       const userId = req.userId;
 
-      if (req.file) {
-        const path = `/imgs/profile/${req.file.filename}`;
+      // const user = await Users.read(userId);
 
-        const newImage = await  Image.create({ userId, path });
+      if (req.file) {
+        const path = `/profile/imgs/${req.file.filename}`;
+
+        const newImage = await Image.create({
+          userId, path
+        });
 
         res.status(201).json(newImage);
       } else {
@@ -338,7 +342,7 @@ router.put(
       const userId = req.userId;
 
       if (req.file) {
-        const path = `/imgs/profile/${req.file.filename}`;
+        const path = `/profile/imgs/${req.file.filename}`;
 
         const image = await Image.update({ userId, path });
 

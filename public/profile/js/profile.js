@@ -23,12 +23,12 @@ async function loadProfile() {
 
     formMethod = 'put';
   } else {
-    image = '/imgs/profile/avatar.png';
+    image = '/imgs/avatar.png';
 
     formMethod = 'post';
   }
 
-  document.querySelector('#profile-name').innerText = user.name;
+  document.querySelector('#profile-name').innerText = user.username;
 
   document.querySelector('#profile-email').innerText = user.email;
 

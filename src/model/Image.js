@@ -6,7 +6,11 @@ async function create({ userId, path }) {
     const newImage = await prisma.image.create({
       data: {
         path,
-        userId
+        user: {
+          connect: {
+            id: userId
+          }
+        }
       },
     });
   
