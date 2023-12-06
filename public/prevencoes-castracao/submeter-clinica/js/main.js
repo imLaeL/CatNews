@@ -3,7 +3,7 @@ import API from '../../../login/js/lib/auth.js';
 function getClinics(clinic, address, medic) {
   return `
         <div class="clinic" id="clinic-${clinic.id}">
-            <img src="${clinic.imageurl}" width="400px" height="300px">
+            <img src="${clinic.imageId}" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
             <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>
             <p class="clinic-name CEP">CEP: ${address.CEP}</p>
@@ -107,19 +107,35 @@ function loadFormSubmit() {
   form.onsubmit = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#name').value;
+    const formData = new FormData(form);
 
-    const imageurl = document.querySelector('#img').value;
+    const name = formData.name;
 
-    const horario_aberto = document.querySelector('#horario_aberto').value;
+    const image = formData.image;
 
-    const horario_fechado = document.querySelector('#horario_fechado').value;
+    const horario_aberto = formData.horario_aberto;
 
-    const CEP = document.querySelector('#CEP').value;
+    const horario_fechado = formData.horario_fechado;
 
-    const name_medic = document.querySelector('#medico').value;
+    const CEP = formData.CEP;
 
-    const especialidade = document.querySelector('#especialidade').value;
+    const name_medic = formData.medico;
+
+    const especialidade = formData.especialidade;
+
+    // const name = document.querySelector('#name').value;
+
+    // const imageurl = document.querySelector('#img').value;
+
+    // const horario_aberto = document.querySelector('#horario_aberto').value;
+
+    // const horario_fechado = document.querySelector('#horario_fechado').value;
+
+    // const CEP = document.querySelector('#CEP').value;
+
+    // const name_medic = document.querySelector('#medico').value;
+
+    // const especialidade = document.querySelector('#especialidade').value;
 
     const clinic = { name, imageurl, horario_aberto, horario_fechado };
 
@@ -159,7 +175,19 @@ function loadFormSubmit() {
     } catch (error) {
       console.error('Erro ao adicionar clínica:', error.message);
     }
-  };
+
+    try {
+      const response = await fetch('/clinics/image', {
+        method: 'post',
+        body: image,
+        headers: {
+          Authorization: `Bearer ${API.getToken()}`,
+        },
+    })
+  } catch (error) {
+    console.error('Erro ao enviar imagem: ', error.message)
+  }
+}
 }
 
 window.signout = API.signout;

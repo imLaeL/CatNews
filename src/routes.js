@@ -47,7 +47,7 @@ validate(
     body: z.object({
       clinic: z.object({
         name: z.string(),
-        imageId: z.string(),
+        // imageId: z.string(),
         horario_aberto: z.string(),
         horario_fechado: z.string(),
       }),
@@ -352,6 +352,34 @@ router.put(
       }
     } catch (error) {
       throw new HTTPError('Unable to create image', 400);
+    }
+  }
+);
+
+router.post(
+  '/clinics/image',
+  isAuthenticated,
+  multer(uploadConfig).single('image'),
+  async (req, res) => {
+    try {
+      const clinicId = id_clinic;
+
+      // const user = await Users.read(userId);
+
+      if (req.file) {
+        const path = `/img/${req.file.filename}`;
+
+        const newImage = await Image.create({
+          clinicId, path
+        });
+
+        res.status(201).json(newImage);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      throw new HTTPError('Unable to create image', 400);
+      console.log(error)
     }
   }
 );
