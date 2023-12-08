@@ -3,7 +3,7 @@ import API from '../../../login/js/lib/auth.js';
 function getClinics(clinic, address, medic) {
   return `
         <div class="clinic" id="clinic-${clinic.id}">
-            <img src="${clinic.imageId}" width="400px" height="300px">
+            <img src="" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
             <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>
             <p class="clinic-name CEP">CEP: ${address.CEP}</p>
@@ -20,6 +20,51 @@ function getClinics(clinic, address, medic) {
             </div>
 
         </div>
+
+        <form enctype="multipart/form-data">
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Carregar Imagem
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <input type="file" id="image" name="image" required />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Carregar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     `;
 }
 
@@ -107,37 +152,33 @@ function loadFormSubmit() {
   form.onsubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(form);
+    // const formData = new FormData(form);
 
-    const name = formData.name;
+    // const name = formData.name;
 
-    const image = formData.image;
+    // const horario_aberto = formData.horario_aberto;
 
-    const horario_aberto = formData.horario_aberto;
+    // const horario_fechado = formData.horario_fechado;
 
-    const horario_fechado = formData.horario_fechado;
+    // const CEP = formData.CEP;
 
-    const CEP = formData.CEP;
+    // const name_medic = formData.medico;
 
-    const name_medic = formData.medico;
+    // const especialidade = formData.especialidade;
 
-    const especialidade = formData.especialidade;
+    const name = document.querySelector('#name').value;
 
-    // const name = document.querySelector('#name').value;
+    const horario_aberto = document.querySelector('#horario_aberto').value;
 
-    // const imageurl = document.querySelector('#img').value;
+    const horario_fechado = document.querySelector('#horario_fechado').value;
 
-    // const horario_aberto = document.querySelector('#horario_aberto').value;
+    const CEP = document.querySelector('#CEP').value;
 
-    // const horario_fechado = document.querySelector('#horario_fechado').value;
+    const name_medic = document.querySelector('#medico').value;
 
-    // const CEP = document.querySelector('#CEP').value;
+    const especialidade = document.querySelector('#especialidade').value;
 
-    // const name_medic = document.querySelector('#medico').value;
-
-    // const especialidade = document.querySelector('#especialidade').value;
-
-    const clinic = { name, imageurl, horario_aberto, horario_fechado };
+    const clinic = { name, horario_aberto, horario_fechado };
 
     const address = { CEP };
 
@@ -161,9 +202,14 @@ function loadFormSubmit() {
           address: newAddress,
           medic: newMedic,
         } = await response.json();
+
         addClinics(newClinic, newAddress, newMedic);
+
         form.reset();
         document.querySelector('.addclinicbutton').click();
+
+        
+
       } else {
         console.error('Falha ao adicionar clínica:', response.statusText);
         

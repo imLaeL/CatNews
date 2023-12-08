@@ -76,7 +76,11 @@ async (req, res) => {
 
   address.cidade = more_address.localidade;
 
-  clinic.userId = req.userId;
+  clinic.user = {
+    connect: {
+      id: req.userId
+    }
+  }
 
   try {
     //Crio clínica
@@ -127,7 +131,6 @@ validate(
     }),
     body: z.object({
       name: z.string(),
-      img: z.string(),
       horario_aberto: z.string(),
       horario_fechado: z.string(),
       CEP: z.string(),
@@ -319,7 +322,7 @@ router.post(
       if (req.file) {
         const path = `/profile/imgs/${req.file.filename}`;
 
-        const newImage = await Image.create({
+        const newImage = await Image.create_image_user({
           userId, path
         });
 
@@ -362,7 +365,6 @@ router.post(
   multer(uploadConfig).single('image'),
   async (req, res) => {
     try {
-      const clinicId = id_clinic;
 
       // const user = await Users.read(userId);
 
