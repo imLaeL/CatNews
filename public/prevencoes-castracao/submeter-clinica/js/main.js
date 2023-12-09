@@ -161,10 +161,7 @@ function loadFormSubmit() {
         } = await response.json();
 
         addClinics(newClinic, newAddress, newMedic);
-
-        form.reset();
-        document.querySelector('.addclinicbutton').click();
-
+        
         const formData = new FormData();
         const imageFile = document.getElementById('image').files[0];
         formData.append('image', imageFile);
@@ -186,6 +183,11 @@ function loadFormSubmit() {
         } catch (error) {
           console.error('Erro ao enviar a imagem:', error);
         }
+
+        
+        form.reset();
+        document.querySelector('.addclinicbutton').click();
+
 
       } else {
         console.error('Falha ao adicionar clínica:', response.statusText);

@@ -40,7 +40,7 @@ async function update({ userId, path }) {
   return newImage;
 }
 
-async function create_image_clinic({ clinicId, path }) {
+async function create_image_clinic({ id_clinic, path }) {
   try {
 
     const newImage = await prisma.image.create({
@@ -48,7 +48,7 @@ async function create_image_clinic({ clinicId, path }) {
         path,
         clinic: {
           connect: {
-            id: clinicId
+            id: id_clinic
           }
         }
       },
