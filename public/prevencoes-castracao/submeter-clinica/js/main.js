@@ -3,7 +3,7 @@ import API from '../../../login/js/lib/auth.js';
 function getClinics(clinic, address, medic) {
   return `
         <div class="clinic" id="clinic-${clinic.id}">
-            <img src="" width="400px" height="300px">
+            <img id="clinic_image" src="" width="400px" height="300px">
             <p class="clinic-name">${clinic.name}</p>
             <p class="clinic-name horario">Aberto das ${clinic.horario_aberto} as ${clinic.horario_fechado}</p>
             <p class="clinic-name CEP">CEP: ${address.CEP}</p>
@@ -21,50 +21,7 @@ function getClinics(clinic, address, medic) {
 
         </div>
 
-        <form enctype="multipart/form-data">
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Carregar Imagem
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <input type="file" id="image" name="image" required />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  data-bs-dismiss="modal"
-                >
-                  Carregar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+       
     `;
 }
 
@@ -208,7 +165,27 @@ function loadFormSubmit() {
         form.reset();
         document.querySelector('.addclinicbutton').click();
 
-        
+        const formData = new FormData();
+        const imageFile = document.getElementById('image').files[0];
+        formData.append('image', imageFile);
+
+        try {
+          const imageResponse = await fetch('/clinics/image', {
+            method: 'post',
+            body: formData,
+            headers: {
+              Authorization: `Bearer ${API.getToken()}`,
+            },
+          });
+
+          if (imageResponse.ok) {
+            console.log('Imagem enviada com sucesso!');
+          } else {
+            console.error('Falha ao enviar a imagem.');
+          }
+        } catch (error) {
+          console.error('Erro ao enviar a imagem:', error);
+        }
 
       } else {
         console.error('Falha ao adicionar clínica:', response.statusText);

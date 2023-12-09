@@ -17,6 +17,8 @@ import { z } from 'zod';
 
 import SendMail from './services/SendMail.js';
 
+let id_clinic;
+
 const saltRounds = Number(process.env.SALT_ROUNDS)
 
 class HTTPError extends Error {
@@ -39,6 +41,7 @@ router.get('/clinicas-submetidas', isAuthenticated, async (req, res) => {
 
   res.json(submited_clinics);
 });
+
 
 // Adiciona novas clínicas
 router.post('/clinicas-submetidas', isAuthenticated, 
@@ -90,7 +93,7 @@ async (req, res) => {
     const newMedic = await Medic.create(medic);
 
     //Pego id da clínica criada
-    const id_clinic = newClinic.id;
+    id_clinic = newClinic.id;
 
     
     //Pego o id do médico criado
@@ -368,11 +371,11 @@ router.post(
 
       // const user = await Users.read(userId);
 
-      if (req.file) {
-        const path = `/img/${req.file.filename}`;
+      if (id_clinic && req.file) {
+        const path = `/prevencoes-castracao/submeter-clinica/img/${req.file.filename}`;
 
-        const newImage = await Image.create({
-          clinicId, path
+        const newImage = await Image.create_image_clinic({
+          id_clinic, path
         });
 
         res.status(201).json(newImage);
