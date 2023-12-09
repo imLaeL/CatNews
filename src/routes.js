@@ -362,6 +362,17 @@ router.put(
   }
 );
 
+router.get('/clinic/one', isAuthenticated, async (req, res) => {
+  try {
+
+    const clinic = await SubmitedClinics.read(id_clinic);
+
+    return res.json(clinic);
+  } catch (error) {
+    throw new HTTPError('Unable to find clinic', 400);
+  }
+});
+
 router.post(
   '/clinics/image',
   isAuthenticated,

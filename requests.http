@@ -1,5 +1,6 @@
 @host = http://localhost:3000
 @createdUserId = {{createdUser.response.body.$.id}}
+@createClinicId = {{createClinicId.response.body.$.id}}
 @token = {{signin.response.body.$.token}}
 @userId = {{userMe.response.body.$.id}}
 
@@ -81,7 +82,7 @@ Authorization: bearer {{token}}
 Content-Type: multipart/form-data; boundary="boundary"
 
 --boundary
-Content-Disposition: form-data; name="userId"
+Content-Disposition: form-data; name="clinicId"
 
 {{createdUserId}}
 --boundary
@@ -90,3 +91,8 @@ Content-Type: image/png
 
 < ./public/prevencoes-castracao/submeter-clinica/imgs/default.png
 --boundary--
+
+###
+
+GET {{host}}/clinic/one
+Authorization: bearer {{token}}
