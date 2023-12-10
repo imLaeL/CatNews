@@ -177,6 +177,8 @@ function loadFormSubmit() {
 
           if (imageResponse.ok) {
             console.log('Imagem enviada com sucesso!');
+            newImage = imageResponse.json();
+            
           } else {
             console.error('Falha ao enviar a imagem.');
           }
@@ -184,7 +186,7 @@ function loadFormSubmit() {
           console.error('Erro ao enviar a imagem:', error);
         }
 
-        
+
         form.reset();
         document.querySelector('.addclinicbutton').click();
 
@@ -201,23 +203,15 @@ function loadFormSubmit() {
       console.error('Erro ao adicionar clínica:', error.message);
     }
 
-    try {
-      const response = await fetch('/clinics/image', {
-        method: 'post',
-        body: image,
-        headers: {
-          Authorization: `Bearer ${API.getToken()}`,
-        },
-    })
-  } catch (error) {
-    console.error('Erro ao enviar imagem: ', error.message)
-  }
+    
 }
 }
 
 window.signout = API.signout;
 
 loadClinics();
+
+document.querySelector('#clinic_image').src = newImage.path;
 
 if (API.isAuthenticated()) {
 

@@ -22,22 +22,50 @@ async function create_image_user({ userId, path }) {
 }
 
 
+// async function update({ userId, path }) {
+//   const newImage = await prisma.image.update({
+//     where: {
+//       user: {
+//         id: userId,
+//       }
+//     },
+//     data: {
+//       path,
+//       user: {
+//         connect: {
+//           id: userId,
+//         },
+//       },
+//     },
+//   });
+
+//   return newImage;
+// }
+
 async function update({ userId, path }) {
-  const newImage = await prisma.image.update({
+  const user = await prisma.user.findUnique({
     where: {
-      userId,
+      id: userId,
     },
-    data: {
-      path,
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
+    include: {
+      image: true,
     },
   });
 
-  return newImage;
+  if (!user) {
+    throw new Error(`User with id ${userId} not found`);
+  }
+
+  const updatedImage = await prisma.image.update({
+    where: {
+      id: user.image.id, // Acesso ao ID da imagem através da relação com o usuário
+    },
+    data: {
+      path,
+    },
+  });
+
+  return updatedImage;
 }
 
 async function create_image_clinic({ id_clinic, path }) {

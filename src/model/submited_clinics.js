@@ -18,7 +18,7 @@ async function readAll() {
 async function read(id) {
     const clinic = await prisma.clinic.findUnique({
         where: {
-            id,
+            id: id,
         }
     })
 

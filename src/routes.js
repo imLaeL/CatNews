@@ -10,7 +10,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import Image from './model/Image.js';
-import uploadConfig from './config/multer.js';
+import { configProfile, configClinic } from './config/multer.js';
 import { validate } from './middleware/validate.js'
 import { isAuthenticated } from './middleware/auth.js';
 import { z } from 'zod';
@@ -129,19 +129,22 @@ async (req, res) => {
 router.put('/clinicas-submetidas/:id', isAuthenticated,
 validate(
   z.object({
-    params: z.object({
-      id: z.number(),
-    }),
     body: z.object({
-      name: z.string(),
-      horario_aberto: z.string(),
-      horario_fechado: z.string(),
-      CEP: z.string(),
-      rua: z.string(),
-      numero: z.number(),
-      cidade: z.string(),
-      medico: z.string(),
-      especialidade: z.string(),
+      clinic: z.object({
+        name: z.string(),
+        // imageId: z.string(),
+        horario_aberto: z.string(),
+        horario_fechado: z.string(),
+      }),
+      address: z.object(
+        {
+          CEP: z.string(),
+        }
+      ),
+      medic: z.object({
+        name_medic: z.string(),
+        especialidade: z.string(),
+      })  
     }),
   })
 ),
@@ -315,7 +318,7 @@ router.get('/users/me', isAuthenticated, async (req, res) => {
 router.post(
   '/users/image',
   isAuthenticated,
-  multer(uploadConfig).single('image'),
+  multer(configProfile).single('image'),
   async (req, res) => {
     try {
       const userId = req.userId;
@@ -334,7 +337,9 @@ router.post(
         throw new Error();
       }
     } catch (error) {
+      console.error(error);
       throw new HTTPError('Unable to create image', 400);
+      
     }
   }
 );
@@ -342,7 +347,7 @@ router.post(
 router.put(
   '/users/image',
   isAuthenticated,
-  multer(uploadConfig).single('image'),
+  multer(configProfile).single('image'),
   async (req, res) => {
     try {
       const userId = req.userId;
@@ -356,8 +361,10 @@ router.put(
       } else {
         throw new Error();
       }
-    } catch (error) {
+    } catch (error) { 
+      console.error(error);
       throw new HTTPError('Unable to create image', 400);
+     
     }
   }
 );
@@ -369,6 +376,7 @@ router.get('/clinic/one', isAuthenticated, async (req, res) => {
 
     return res.json(clinic);
   } catch (error) {
+    console.error(error)
     throw new HTTPError('Unable to find clinic', 400);
   }
 });
@@ -376,7 +384,7 @@ router.get('/clinic/one', isAuthenticated, async (req, res) => {
 router.post(
   '/clinics/image',
   isAuthenticated,
-  multer(uploadConfig).single('image'),
+  multer(configClinic).single('image'),
   async (req, res) => {
     try {
 
@@ -394,8 +402,9 @@ router.post(
         throw new Error();
       }
     } catch (error) {
-      throw new HTTPError('Unable to create image', 400);
       console.log(error)
+      throw new HTTPError('Unable to create image', 400);
+      
     }
   }
 );

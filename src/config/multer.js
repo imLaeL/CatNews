@@ -33,6 +33,7 @@ import multer from 'multer';
 //   },
 // };
 
-const config = { dest: 'public/profile/imgs' };
+const configProfile = { dest: 'public/profile/imgs' };
+const configClinic = { dest: 'public/prevencoes-castracao/submeter-clinica/img' }
 
-export default config;
+export { configProfile, configClinic }
