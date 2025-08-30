@@ -201,9 +201,10 @@ Este projeto está sob a Licença ISC. Veja o arquivo [LICENSE](LICENSE) para de
 [![GitHub Repository](https://img.shields.io/github/repo/imLaeL/CatNews?style=social)](https://github.com/imLaeL/CatNews)
 
 * **Repositório:** [CatNews](https://github.com/imLaeL/CatNews)
-* **Autores:** Shannon Brunna, Kayck Jesse, Janaína Vitória e Isaque Lael
+* **Autores:** Isaque Lael, Shannon Brunna, Kayck Jesse, Janaína Vitória 
 * **Contato:** [Abra uma issue](https://github.com/imLaeL/CatNews/issues) para dúvidas e feedback. 💬
 
 ⭐️ Dê uma estrela e contribua para tornar o mundo dos amantes de gatos ainda melhor!
 
 ---
+
