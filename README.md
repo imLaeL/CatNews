@@ -207,5 +207,3 @@ Este projeto está sob a Licença ISC. Veja o arquivo [LICENSE](LICENSE) para de
 ⭐️ Dê uma estrela e contribua para tornar o mundo dos amantes de gatos ainda melhor!
 
 ---
-
-Quer que eu também adapte o README para **Português (Brasil)** em termos de badges (por exemplo, "Linguagem" em vez de "Language", "Framework" → "Framework/Lib") ou prefere manter os badges em inglês?
